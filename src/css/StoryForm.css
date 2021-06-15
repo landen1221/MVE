@@ -1,0 +1,40 @@
+.MuiInputBase-root {
+  width: 500px;
+}
+
+.MuiFormControl-root {
+  margin-left: 0;
+}
+
+.MuiFormGroup-root {
+  align-content: center;
+}
+
+h2 {
+  margin-bottom: 0;
+}
+
+#story-label {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.54);
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.00938em;
+  margin-bottom: 0.5rem;
+}
+
+#story-helper {
+  margin-top: 3px;
+  margin-bottom: 2em;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+}
+
+#username-helper {
+  margin-top: 3px;
+  margin-bottom: 15px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+}
