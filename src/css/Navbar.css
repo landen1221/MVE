@@ -1,0 +1,25 @@
+.MuiTypography-root {
+  font-size: 1em;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+.MuiAppBar-positionFixed {
+  margin-left: 250px;
+  align-items: center;
+}
+
+.makeStyles-search-3 {
+  margin-left: 25em;
+  margin-right: 25em;
+}
+
+.MuiButton-outlined {
+  border: 1px solid #fff;
+}
+
+.MuiButton-root {
+  color: white;
+  border-radius: 15px;
+}

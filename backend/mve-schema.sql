@@ -7,7 +7,7 @@ CREATE TABLE stories (
     story_id SERIAL PRIMARY KEY,
     username VARCHAR(20) UNIQUE NOT NULL,
     vaccine VARCHAR(20) NOT NULL,
-    satisfied BOOLEAN NOT NULL,
+    satisfied VARCHAR(5) NOT NULL,
     age INTEGER NULL,
     gender VARCHAR(5) NULL,
     story VARCHAR(1500) NOT NULL

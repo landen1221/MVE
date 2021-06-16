@@ -5,17 +5,10 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
+import Button from "@material-ui/core/Button";
+import "../css/Navbar.css";
 
 const useStyles = makeStyles((theme) => ({
-  grow: {
-    flexGrow: 1,
-  },
-  title: {
-    display: "none",
-    [theme.breakpoints.up("sm")]: {
-      display: "block",
-    },
-  },
   search: {
     position: "relative",
     borderRadius: theme.shape.borderRadius,
@@ -53,18 +46,6 @@ const useStyles = makeStyles((theme) => ({
       width: "20ch",
     },
   },
-  sectionDesktop: {
-    display: "none",
-    [theme.breakpoints.up("md")]: {
-      display: "flex",
-    },
-  },
-  sectionMobile: {
-    display: "flex",
-    [theme.breakpoints.up("md")]: {
-      display: "none",
-    },
-  },
 }));
 
 function Navbar() {
@@ -74,7 +55,7 @@ function Navbar() {
     <div className={classes.grow}>
       <AppBar position="fixed">
         <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Typography variant="p" noWrap>
             MyVaccineExperience.org
           </Typography>
           <div className={classes.search}>
@@ -90,6 +71,9 @@ function Navbar() {
               inputProps={{ "aria-label": "search" }}
             />
           </div>
+          <Button variant="outlined" color="default">
+            Add Story
+          </Button>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}></div>
           <div className={classes.sectionMobile}></div>

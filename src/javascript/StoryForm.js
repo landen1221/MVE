@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
@@ -10,7 +9,7 @@ import FormLabel from "@material-ui/core/FormLabel";
 import Button from "@material-ui/core/Button";
 import MenuItem from "@material-ui/core/MenuItem";
 import "../css/StoryForm.css";
-const faker = require("faker");
+import UsernameGenerator from "username-generator";
 
 const vaccineOptions = [
   {
@@ -35,21 +34,9 @@ const vaccineOptions = [
   },
 ];
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexWrap: "wrap",
-    "& .MuiTextField-root": {
-      margin: theme.spacing(1),
-      width: "25ch",
-    },
-  },
-}));
-
 const StoryForm = () => {
-  // styling
-  const classes = useStyles();
   const initialData = {
-    username: faker.internet.userName(),
+    username: UsernameGenerator.generateUsername(),
     vaccine: "",
     satisfied: "",
     age: 0,
@@ -117,7 +104,7 @@ const StoryForm = () => {
 
   return (
     <div>
-      <h2>Submit Story:</h2>
+      <h3>Submit Story about your COVID or Vaccine experience:</h3>
       <p id="story-helper">
         *Story should be 1st hand experience (not something you heard)
         <br />
@@ -127,21 +114,17 @@ const StoryForm = () => {
       <form>
         <TextField
           label="Username"
-          id="outlined-margin-none"
           variant="outlined"
           name="username"
           value={formData.username}
+          helperText="*You may keep auto-generated username (Save to find your post later)"
           onChange={handleChange}
         />
-        <p id="username-helper">
-          *You may keep auto-generated username
-          <br />
-          *Save username to find your post later
-        </p>
+        <br />
+        <br />
         <TextField
           label="Age (Optional)"
           placeholder="Optional"
-          id="outlined-margin-none"
           variant="outlined"
           name="age"
           onChange={handleChange}

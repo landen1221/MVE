@@ -1,6 +1,5 @@
 import "./App.css";
 import StoriesSection from "./javascript/StoriesSection";
-import VaccineButton from "./javascript/VaccineButton";
 import StoryForm from "./javascript/StoryForm";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Navbar from "./javascript/Navbar";
@@ -16,8 +15,23 @@ function App() {
       <ButtonSection />
 
       <hr />
-      <StoriesSection />
-      <StoriesSection />
+      <Switch>
+        <Route path="/covid">
+          <StoriesSection vaccine="covid" />
+        </Route>
+        <Route path="/vaccine/pfizer">
+          <StoriesSection vaccine="pfizer" />
+        </Route>
+        <Route path="/vaccine/moderna">
+          <StoriesSection vaccine="moderna" />
+        </Route>
+        <Route path="/vaccine/johnsonandjohnson">
+          <StoriesSection vaccine="Johnson & Johnson" />
+        </Route>
+        <Route path="/vaccine/astrazeneca">
+          <StoriesSection vaccine="AstraZeneca" />
+        </Route>
+      </Switch>
 
       <hr />
       <StoryForm />
