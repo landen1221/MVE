@@ -15,6 +15,20 @@ class MVEAPI {
       throw Array.isArray(message) ? message : [message];
     }
   }
+
+  static async postStory(data, method = "post") {
+    const url = `${BASE_URL}/story`;
+
+    try {
+      const addStory = await axios({ url, data, method });
+      console.log(addStory);
+      return addStory;
+    } catch (err) {
+      console.error("API Error:", err.response);
+      let message = err.response.data.error.message;
+      throw Array.isArray(message) ? message : [message];
+    }
+  }
 }
 
 export default MVEAPI;

@@ -10,7 +10,7 @@ const StoriesSection = ({ vaccine }) => {
   useEffect(
     function getVaccineStories() {
       async function getStories() {
-        let tempList = await MVEAPI.requestStories(vaccine);
+        let tempList = await MVEAPI.requestStories(vaccine.toLowerCase());
         console.log(tempList);
         setStoryList(tempList.data.stories);
       }

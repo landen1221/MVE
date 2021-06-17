@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
@@ -10,6 +10,7 @@ import Button from "@material-ui/core/Button";
 import MenuItem from "@material-ui/core/MenuItem";
 import "../css/StoryForm.css";
 import UsernameGenerator from "username-generator";
+import MVEAPI from "../api";
 
 const vaccineOptions = [
   {
@@ -35,6 +36,7 @@ const vaccineOptions = [
 ];
 
 const StoryForm = () => {
+  let history = useHistory();
   const initialData = {
     username: UsernameGenerator.generateUsername(),
     vaccine: "",
@@ -57,8 +59,18 @@ const StoryForm = () => {
       story: formData.story,
     };
 
+    async function addStory() {
+      let added = await MVEAPI.postStory(storyData);
+      console.log(added);
+    }
+
+    addStory();
+
     console.log("Success. User data:");
     console.log(storyData);
+    history.push(
+      storyData.vaccine === "COVID" ? `/covid` : `/vaccine/${storyData.vaccine}`
+    );
   };
 
   const handleChange = (evt) => {
