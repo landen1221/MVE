@@ -1,9 +1,10 @@
 import VaccineButton from "./VaccineButton";
 import { Link } from "react-router-dom";
+import "../css/ButtonSection.css";
 
 const ButtonSection = () => {
   return (
-    <>
+    <div id="ButtonSection">
       <Link to="/covid">
         <VaccineButton vaccine="COVID" key="covid" stories="stories" />
       </Link>
@@ -14,12 +15,12 @@ const ButtonSection = () => {
         <VaccineButton vaccine="Moderna" key="moderna" />
       </Link>
       <Link to="/vaccine/johnsonandjohnson">
-        <VaccineButton vaccine="J&J" key="johnsonandjohnson" />
+        <VaccineButton vaccine="J & J" key="johnsonandjohnson" />
       </Link>
       <Link to="/vaccine/astrazeneca">
         <VaccineButton vaccine="AstaZeneca" key="astrazeneca" />
       </Link>
-    </>
+    </div>
   );
 };
 

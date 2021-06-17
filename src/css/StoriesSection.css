@@ -1,0 +1,30 @@
+.MuiBox-root {
+  border: 1px solid rgba(170, 50, 220, 0.6);
+  border-radius: 10px;
+  width: 50em;
+  margin: auto;
+  margin-top: 15px;
+}
+
+.StoriesSection-stories {
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  margin: auto;
+}
+
+#age-gender {
+  font-weight: normal;
+}
+
+.StoriesSection h4 {
+  text-align: left;
+  margin-left: 3em;
+  margin-bottom: 0;
+}
+
+.StoriesSection p {
+  text-align: left;
+  margin-left: 3em;
+  margin-top: 0.5em;
+}

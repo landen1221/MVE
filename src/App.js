@@ -3,38 +3,40 @@ import StoriesSection from "./javascript/StoriesSection";
 import StoryForm from "./javascript/StoryForm";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Navbar from "./javascript/Navbar";
-import ButtonSection from "./javascript/ButtonSection";
+import Header from "./javascript/Header";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <h3>
-        Real stories from real people to help you make an informed decision!
-      </h3>
-      <ButtonSection />
 
-      <hr />
       <Switch>
-        <Route path="/covid">
-          <StoriesSection vaccine="covid" />
+        <Route exact path="/covid">
+          <StoriesSection vaccine="COVID" />
         </Route>
-        <Route path="/vaccine/pfizer">
-          <StoriesSection vaccine="pfizer" />
+        <Route exact path="/vaccine/pfizer">
+          <StoriesSection vaccine="Pfizer" />
         </Route>
-        <Route path="/vaccine/moderna">
-          <StoriesSection vaccine="moderna" />
+        <Route exact path="/vaccine/moderna">
+          <StoriesSection vaccine="Moderna" />
         </Route>
-        <Route path="/vaccine/johnsonandjohnson">
+        <Route exact path="/vaccine/johnsonandjohnson">
           <StoriesSection vaccine="Johnson & Johnson" />
         </Route>
-        <Route path="/vaccine/astrazeneca">
+        <Route exact path="/vaccine/astrazeneca">
           <StoriesSection vaccine="AstraZeneca" />
         </Route>
+        <Route exact path="/add-story">
+          <StoryForm />
+        </Route>
+        <Redirect from="/" to="/covid" />
       </Switch>
-
-      <hr />
-      <StoryForm />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 }

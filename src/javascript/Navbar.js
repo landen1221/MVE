@@ -7,6 +7,7 @@ import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 import Button from "@material-ui/core/Button";
 import "../css/Navbar.css";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   search: {
@@ -55,9 +56,11 @@ function Navbar() {
     <div className={classes.grow}>
       <AppBar position="fixed">
         <Toolbar>
-          <Typography variant="p" noWrap>
-            MyVaccineExperience.org
-          </Typography>
+          <Link to="/">
+            <Typography variant="p" noWrap id="logo">
+              MyVaccineExperience.org
+            </Typography>
+          </Link>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -71,9 +74,11 @@ function Navbar() {
               inputProps={{ "aria-label": "search" }}
             />
           </div>
-          <Button variant="outlined" color="default">
-            Add Story
-          </Button>
+          <Link to="/add-story">
+            <Button variant="outlined" color="default">
+              Add Story
+            </Button>
+          </Link>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}></div>
           <div className={classes.sectionMobile}></div>

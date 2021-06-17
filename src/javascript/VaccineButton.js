@@ -5,7 +5,7 @@ import "../css/VaccineButton.css";
 const VaccineButton = ({ vaccine }) => {
   return (
     <>
-      <Button variant="contained" color="primary" className="VaccineButton">
+      <Button variant="contained" color="primary" id="VaccineButton">
         {vaccine}
       </Button>
 

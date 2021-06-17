@@ -9,7 +9,7 @@ CREATE TABLE stories (
     vaccine VARCHAR(20) NOT NULL,
     satisfied VARCHAR(5) NOT NULL,
     age INTEGER NULL,
-    gender VARCHAR(5) NULL,
+    gender VARCHAR(7) NULL,
     story VARCHAR(1500) NOT NULL
 );
 

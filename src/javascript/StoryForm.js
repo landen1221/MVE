@@ -103,10 +103,10 @@ const StoryForm = () => {
   );
 
   return (
-    <div>
+    <div className="StoryForm">
       <h3>Submit Story about your COVID or Vaccine experience:</h3>
       <p id="story-helper">
-        *Story should be 1st hand experience (not something you heard)
+        *Story should be 1st hand experience (not something you heard/read)
         <br />
         *This is a public forum. Please don't include personal/private
         information
@@ -117,7 +117,7 @@ const StoryForm = () => {
           variant="outlined"
           name="username"
           value={formData.username}
-          helperText="*You may keep auto-generated username (Save to find your post later)"
+          helperText="*You may keep auto-generated username (Save username to find your post later)"
           onChange={handleChange}
         />
         <br />
