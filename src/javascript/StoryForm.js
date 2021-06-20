@@ -12,30 +12,7 @@ import "../css/StoryForm.css";
 import UsernameGenerator from "username-generator";
 import MVEAPI from "../api";
 
-const vaccineOptions = [
-  {
-    value: "COVID",
-    label: "COVID",
-  },
-  {
-    value: "Moderna",
-    label: "Moderna",
-  },
-  {
-    value: "Pfizer",
-    label: "Pfizer",
-  },
-  {
-    value: "Johnson",
-    label: "Johnson & Johnson",
-  },
-  {
-    value: "AstraZeneca",
-    label: "AstraZeneca",
-  },
-];
-
-const StoryForm = () => {
+const StoryForm = ({ vaccines }) => {
   let history = useHistory();
   const initialData = {
     username: UsernameGenerator.generateUsername(),
@@ -91,8 +68,8 @@ const StoryForm = () => {
         value={formData.satisfied}
         onChange={handleChange}
       >
-        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-        <FormControlLabel value="no" control={<Radio />} label="No" />
+        <FormControlLabel value="true" control={<Radio />} label="Yes" />
+        <FormControlLabel value="false" control={<Radio />} label="No" />
       </RadioGroup>
     </FormControl>
   );
@@ -172,15 +149,25 @@ const StoryForm = () => {
           onChange={handleChange}
           variant="outlined"
         >
+          <MenuItem key={"covid"} value={"covid"} name={"covid"}>
+            COVID
+          </MenuItem>
+          {Object.entries(vaccines).map(([dbName, siteName]) => (
+            <MenuItem key={dbName} value={dbName} name={dbName}>
+              {siteName}
+            </MenuItem>
+          ))}
+
+          {/* 
           {vaccineOptions.map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>
-          ))}
+          ))} */}
         </TextField>
         <br />
         <br />
-        {formData.vaccine === "COVID" ? extraCovidRow : extraVaccineRow}
+        {formData.vaccine === "covid" ? extraCovidRow : extraVaccineRow}
         <br />
         <p id="story-label">My Story:</p>
         <TextField

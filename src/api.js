@@ -16,6 +16,18 @@ class MVEAPI {
     }
   }
 
+  static async getStats(method = "get") {
+    const url = `${BASE_URL}/vaccine`;
+    try {
+      const stats = await axios({ url, method });
+      return stats;
+    } catch (err) {
+      console.error("API Error:", err.response);
+      let message = err.response.data.error.message;
+      throw Array.isArray(message) ? message : [message];
+    }
+  }
+
   static async postStory(data, method = "post") {
     const url = `${BASE_URL}/story`;
 

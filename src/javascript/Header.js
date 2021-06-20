@@ -1,11 +1,11 @@
 import ButtonSection from "./ButtonSection";
-const Header = () => {
+const Header = ({ vaccines }) => {
   return (
     <>
       <h2>
         Real stories from real people to help you make an informed decision!
       </h2>
-      <ButtonSection />
+      <ButtonSection vaccines={vaccines} />
     </>
   );
 };

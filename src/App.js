@@ -3,31 +3,75 @@ import StoriesSection from "./javascript/StoriesSection";
 import StoryForm from "./javascript/StoryForm";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Navbar from "./javascript/Navbar";
-import Header from "./javascript/Header";
+import { useEffect, useState } from "react";
+import MVEAPI from "./api";
+
+// key = how it's stored in DB
+// value = how it shows on the web-page
+// covid = covid: "COVID"
+const vaccines = {
+  johnsonandjohnson: "Johnson & Johnson",
+  astrazeneca: "AstraZeneca",
+  pfizer: "Pfizer",
+  moderna: "Moderna",
+};
 
 function App() {
+  const tempStats = {
+    stats: {
+      pfizer: 1,
+      astrazeneca: 1,
+      moderna: 0.67,
+      johnsonandjohnson: 0.5,
+      covid: [
+        {
+          satisfied: "3",
+          count: "1",
+        },
+        {
+          satisfied: "4",
+          count: "1",
+        },
+      ],
+    },
+  };
+  const [stats, setStats] = useState(tempStats);
+
+  useEffect(() => {
+    async function getStats() {
+      let stats = await MVEAPI.getStats();
+      setStats(stats.data.stats);
+    }
+    getStats();
+  }, []);
+
   return (
     <div className="App">
       <Navbar />
 
       <Switch>
-        <Route exact path="/covid">
-          <StoriesSection vaccine="COVID" />
+        <Route exact path="/covid" key="covid">
+          <StoriesSection
+            dbName="covid"
+            siteName="COVID"
+            vaccines={vaccines}
+            stats={stats}
+            key="covid"
+          />
         </Route>
-        <Route exact path="/vaccine/pfizer">
-          <StoriesSection vaccine="Pfizer" />
-        </Route>
-        <Route exact path="/vaccine/moderna">
-          <StoriesSection vaccine="Moderna" />
-        </Route>
-        <Route exact path="/vaccine/johnsonandjohnson">
-          <StoriesSection vaccine="Johnson & Johnson" />
-        </Route>
-        <Route exact path="/vaccine/astrazeneca">
-          <StoriesSection vaccine="AstraZeneca" />
-        </Route>
-        <Route exact path="/add-story">
-          <StoryForm />
+        {Object.entries(vaccines).map(([dbName, siteName]) => (
+          <Route exact path={`/vaccine/${dbName}`} key={dbName}>
+            <StoriesSection
+              dbName={dbName}
+              siteName={siteName}
+              vaccines={vaccines}
+              stats={stats}
+              key={dbName}
+            />
+          </Route>
+        ))}
+        <Route exact path="/add-story" key="add-story">
+          <StoryForm vaccines={vaccines} key="add-story" />
         </Route>
         <Redirect from="/" to="/covid" />
       </Switch>
