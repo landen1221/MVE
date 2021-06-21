@@ -34,31 +34,27 @@ const StoriesSection = ({ dbName, siteName, vaccines, stats }) => {
       <div className="StoriesSection">
         <h3>Stories about {siteName}</h3>
         <Grid container spacing={2}>
-          <Grid item xs={10}>
-            <div className={classes.paper}>
-              <div className="StoriesSection-stories">
-                {storyList.length > 0 ? (
-                  storyList.map((currStory, idx) => (
-                    <Box justifyContent="center" key={idx}>
-                      <h4>
-                        {currStory.username}&emsp;&emsp;
-                        <i id="age-gender">
-                          <u>Age</u>: {currStory.age}&emsp;
-                          <u>Gender</u>: {currStory.gender}&emsp;
-                          <u>Satisfied</u>: {currStory.satisfied}
-                        </i>
-                      </h4>
-                      <p>{currStory.story}</p>
-                    </Box>
-                  ))
-                ) : (
-                  <i id="no-stories">
-                    <br />
-                    no stories available
-                  </i>
-                )}
-              </div>
-            </div>
+          <Grid item xs={10} className="stories">
+            {storyList.length > 0 ? (
+              storyList.map((currStory, idx) => (
+                <Box justifyContent="center" key={idx}>
+                  <h4>
+                    {currStory.username}&emsp;&emsp;
+                    <i id="age-gender">
+                      <u>Age</u>: {currStory.age}&emsp;
+                      <u>Gender</u>: {currStory.gender}&emsp;
+                      <u>Satisfied</u>: {currStory.satisfied}
+                    </i>
+                  </h4>
+                  <p>{currStory.story}</p>
+                </Box>
+              ))
+            ) : (
+              <i id="no-stories">
+                <br />
+                no stories available
+              </i>
+            )}
           </Grid>
 
           <Grid item xs={2}>

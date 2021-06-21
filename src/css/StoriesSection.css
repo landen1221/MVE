@@ -36,3 +36,10 @@
   align-content: center;
   text-align: center;
 }
+
+.StoriesSection .stories {
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  margin: 0;
+}

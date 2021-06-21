@@ -1,6 +1,6 @@
 import "./App.css";
 import StoriesSection from "./javascript/StoriesSection";
-import StoryForm from "./javascript/StoryForm";
+import StoryForm from "./archive/StoryForm";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Navbar from "./javascript/Navbar";
 import { useEffect, useState } from "react";
@@ -69,6 +69,7 @@ function App() {
         <Route exact path="/add-story" key="add-story">
           <StoryForm vaccines={vaccines} />
         </Route>
+
         <Redirect from="/" to="/covid" />
       </Switch>
       <br />

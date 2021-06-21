@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import Radio from "@material-ui/core/Radio";
@@ -12,52 +11,66 @@ import "../css/StoryForm.css";
 import UsernameGenerator from "username-generator";
 import MVEAPI from "../api";
 
+import React from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+
 const StoryForm = ({ vaccines }) => {
   let history = useHistory();
-  const initialData = {
-    username: UsernameGenerator.generateUsername(),
-    vaccine: "",
-    satisfied: "",
-    age: 0,
-    gender: "",
-    story: "",
-  };
 
-  const [formData, setFormData] = useState(initialData);
-  const [errors, setErrors] = useState({})
+  const formik = useFormik({
+    initialValues: {
+      username: UsernameGenerator.generateUsername(),
+      vaccine: "",
+      satisfied: "",
+      age: "",
+      gender: "",
+      story: "",
+    },
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
+    validationSchema: Yup.object({
+      username: Yup.string()
+        .max(20, <p className="error">Must be 20 characters or less</p>)
+        .required(<p className="error">Username Required</p>),
+      vaccine: Yup.string().required(
+        <p className="error">Must select COVID or Vaccine</p>
+      ),
+      satisfied: Yup.string().required(<p className="error">Required</p>),
+      age: Yup.number()
+        .min(
+          14,
+          <p className="error">Unfortunately you must be at least 14 to post</p>
+        )
+        .max(
+          120,
+          <p className="error">Invalid age. Enter age or leave blank</p>
+        ),
+      gender: Yup.string(),
+      story: Yup.string()
+        .min(25, <p className="error">Story must be at least 25 characters.</p>)
+        .required(
+          <p className="error">
+            This site is built by your stories. Please share your experience.
+          </p>
+        ),
+    }),
+    onSubmit: (values) => {
+      console.log(values);
+      async function addStory() {
+        let added = await MVEAPI.postStory(values);
+        console.log(added);
+      }
 
-    async function addStory() {
-      let added = await MVEAPI.postStory(formData);
-      console.log(added);
-    }
+      addStory();
 
-    addStory();
-
-    console.log("Success. User data:");
-    // console.log(storyData);
-    history.push(
-      formData.vaccine === "COVID" ? `/covid` : `/vaccine/${formData.vaccine}`
-    );
-  };
-
-  const basicValidator = (formData) => {
-    if(!formData.username)
-    if(!formData.username)
-    if(!formData.username) 
-
-  }
-
-  const handleChange = (evt) => {
-    const { name, value } = evt.target;
-
-    setFormData((f) => ({
-      ...f,
-      [name]: value,
-    }));
-  };
+      history.push(
+        values.vaccine === "COVID" ? `/covid` : `/vaccine/${values.vaccine}`
+      );
+    },
+    // onSubmit: (values) => {
+    //   alert(JSON.stringify(values, null, 2));
+    // },
+  });
 
   const extraVaccineRow = (
     <FormControl component="fieldset">
@@ -65,9 +78,9 @@ const StoryForm = ({ vaccines }) => {
       <RadioGroup
         aria-label="satisfied"
         name="satisfied"
-        value={formData.satisfied}
-        onChange={handleChange}
-        required
+        value={formik.values.satisfied}
+        onBlur={formik.handleBlur}
+        onChange={formik.handleChange}
       >
         <FormControlLabel value="true" control={<Radio />} label="Yes" />
         <FormControlLabel value="false" control={<Radio />} label="No" />
@@ -81,8 +94,9 @@ const StoryForm = ({ vaccines }) => {
       <RadioGroup
         aria-label="satisfied"
         name="satisfied"
-        value={formData.satisfied}
-        onChange={handleChange}
+        value={formik.values.satisfied}
+        onBlur={formik.handleBlur}
+        onChange={formik.handleChange}
       >
         <FormControlLabel
           value="No Big Deal"
@@ -104,21 +118,55 @@ const StoryForm = ({ vaccines }) => {
     <div className="StoryForm">
       <h3>Submit Story about your COVID or Vaccine experience:</h3>
       <p id="story-helper">
-        *Story should be 1st hand experience (not something you heard/read)
-        <br />
-        *This is a public forum. Please don't include personal/private
-        information
+        Story should be 1st hand experience (not something you heard/read) This
+        is a public forum. Please don't include personal/private information
       </p>
-      <form>
+
+      <form onSubmit={formik.handleSubmit}>
         <TextField
           label="Username"
           variant="outlined"
           name="username"
-          value={formData.username}
           helperText="*You may keep auto-generated username (Save username to find your post later)"
-          onChange={handleChange}
-          required
+          value={formik.values.username}
+          onBlur={formik.handleBlur}
+          onChange={formik.handleChange}
         />
+        {formik.touched.username && formik.errors.username ? (
+          <div>{formik.errors.username}</div>
+        ) : null}
+        <br />
+        <br />
+
+        <TextField
+          id="select-vaccine"
+          select
+          label="Select COVID or Vaccine:"
+          name="vaccine"
+          variant="outlined"
+          value={formik.values.vaccine}
+          onBlur={formik.handleBlur}
+          onChange={formik.handleChange}
+        >
+          <MenuItem key={"covid"} value={"covid"} name={"covid"}>
+            COVID
+          </MenuItem>
+          {Object.entries(vaccines).map(([dbName, siteName]) => (
+            <MenuItem key={dbName} value={dbName} name={dbName}>
+              {siteName}
+            </MenuItem>
+          ))}
+        </TextField>
+        {formik.touched.vaccine && formik.errors.vaccine ? (
+          <div>{formik.errors.vaccine}</div>
+        ) : null}
+        <br />
+        <br />
+
+        {formik.values.vaccine === "covid" ? extraCovidRow : extraVaccineRow}
+        {formik.touched.satisfied && formik.errors.satisfied ? (
+          <div>{formik.errors.satisfied}</div>
+        ) : null}
         <br />
         <br />
         <TextField
@@ -126,17 +174,24 @@ const StoryForm = ({ vaccines }) => {
           placeholder="Optional"
           variant="outlined"
           name="age"
-          onChange={handleChange}
+          value={formik.values.age}
+          onBlur={formik.handleBlur}
+          onChange={formik.handleChange}
         />
-        <br /> <br />
+        {formik.touched.age && formik.errors.age ? (
+          <div>{formik.errors.age}</div>
+        ) : null}
+        <br />
+        <br />
         <TextField
           id="select-gender"
           select
           label="Gender (optional)"
-          value={formData.gender}
-          onChange={handleChange}
           name="gender"
           variant="outlined"
+          value={formik.values.gender}
+          onBlur={formik.handleBlur}
+          onChange={formik.handleChange}
         >
           <MenuItem key="male" value="male">
             Male
@@ -148,31 +203,12 @@ const StoryForm = ({ vaccines }) => {
             Other
           </MenuItem>
         </TextField>
+        {formik.touched.gender && formik.errors.gender ? (
+          <div>{formik.errors.gender}</div>
+        ) : null}
         <br />
         <br />
-        <TextField
-          id="select-vaccine"
-          select
-          label="Select COVID or Vaccine:"
-          value={formData.vaccine}
-          name="vaccine"
-          onChange={handleChange}
-          variant="outlined"
-          required
-        >
-          <MenuItem key={"covid"} value={"covid"} name={"covid"}>
-            COVID
-          </MenuItem>
-          {Object.entries(vaccines).map(([dbName, siteName]) => (
-            <MenuItem key={dbName} value={dbName} name={dbName}>
-              {siteName}
-            </MenuItem>
-          ))}
-        </TextField>
-        <br />
-        <br />
-        {formData.vaccine === "covid" ? extraCovidRow : extraVaccineRow}
-        <br />
+
         <p id="story-label">My Story:*</p>
         <TextField
           placeholder="After my 2nd vaccine I didn't feel great for a few days, but I'm glad I got it because..."
@@ -182,12 +218,16 @@ const StoryForm = ({ vaccines }) => {
           rows={5}
           rowsMax={Infinity}
           name="story"
-          value={formData.story}
-          onChange={handleChange}
-          required
+          value={formik.values.story}
+          onChange={formik.handleChange}
         />
+        {formik.touched.story && formik.errors.story ? (
+          <div>{formik.errors.story}</div>
+        ) : null}
+
         <br />
         <br />
+
         <Link to="/">
           <Button
             variant="contained"
@@ -201,7 +241,7 @@ const StoryForm = ({ vaccines }) => {
           variant="contained"
           color="primary"
           className="VaccineButton"
-          onClick={handleSubmit}
+          type="submit"
         >
           Submit
         </Button>
@@ -209,5 +249,4 @@ const StoryForm = ({ vaccines }) => {
     </div>
   );
 };
-
 export default StoryForm;
