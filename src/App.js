@@ -18,22 +18,20 @@ const vaccines = {
 
 function App() {
   const tempStats = {
-    stats: {
-      pfizer: 1,
-      astrazeneca: 1,
-      moderna: 0.67,
-      johnsonandjohnson: 0.5,
-      covid: [
-        {
-          satisfied: "3",
-          count: "1",
-        },
-        {
-          satisfied: "4",
-          count: "1",
-        },
-      ],
-    },
+    pfizer: 1,
+    astrazeneca: 1,
+    moderna: 0.67,
+    johnsonandjohnson: 0.5,
+    covid: [
+      {
+        satisfied: "3",
+        count: "1",
+      },
+      {
+        satisfied: "4",
+        count: "1",
+      },
+    ],
   };
   const [stats, setStats] = useState(tempStats);
 
@@ -56,7 +54,6 @@ function App() {
             siteName="COVID"
             vaccines={vaccines}
             stats={stats}
-            key="covid"
           />
         </Route>
         {Object.entries(vaccines).map(([dbName, siteName]) => (
@@ -66,12 +63,11 @@ function App() {
               siteName={siteName}
               vaccines={vaccines}
               stats={stats}
-              key={dbName}
             />
           </Route>
         ))}
         <Route exact path="/add-story" key="add-story">
-          <StoryForm vaccines={vaccines} key="add-story" />
+          <StoryForm vaccines={vaccines} />
         </Route>
         <Redirect from="/" to="/covid" />
       </Switch>

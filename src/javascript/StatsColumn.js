@@ -9,18 +9,18 @@ import "../css/StatsColumn.css";
 //     "johnsonandjohnson": 80,
 //     "covid": [
 //       {
-//         "satisfied": "1",
+//         "satisfied": "no big deal",
 //         "count": "45"
 //       },
 //       {
-//         "satisfied": "2",
+//         "satisfied": "mild",
 //         "count": "40"
 //       },
-//         "satisfied": "3",
+//         "satisfied": "moderate",
 //         "count": "35"
 //       },
 //       {
-//         "satisfied": "4",
+//         "satisfied": "severe",
 //         "count": "30"
 //       },
 //     ]
@@ -28,10 +28,10 @@ import "../css/StatsColumn.css";
 // }
 
 const StatsColumn = ({ stats, vaccines }) => {
-  // let totalCovid = 0;
-  // for (let val of stats["covid"]) {
-  //   totalCovid += parseInt(val["count"]);
-  // }
+  let totalCovid = 0;
+  for (let val of stats["covid"]) {
+    totalCovid += parseInt(val["count"]);
+  }
 
   return (
     <>
@@ -46,18 +46,19 @@ const StatsColumn = ({ stats, vaccines }) => {
         ))}
       </div>
       <br />
-      <br />
-      {/* <div className="Stats">
+      <div className="Stats">
         <h4>COVID Intensity</h4>
-        <p id="intensity-helper">(Out of {totalCovid} cases)</p>
         <hr />
+        <p id="intensity-helper">
+          (Out of <u>{totalCovid}</u> cases)
+        </p>
         {stats["covid"].map((intensity) => (
           <p key={intensity["satisfied"]} className="intensity">
             <b>{intensity["satisfied"]}: </b>{" "}
-            {(intensity["count"] / totalCovid) * 100}%
+            {Math.round((intensity["count"] / totalCovid) * 100 * 100) / 100}%
           </p>
         ))}
-      </div> */}
+      </div>
     </>
   );
 };

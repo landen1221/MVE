@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import "../css/VaccineButton.css";
 

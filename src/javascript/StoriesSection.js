@@ -24,36 +24,9 @@ const StoriesSection = ({ dbName, siteName, vaccines, stats }) => {
         setStoryList(tempList.data.stories);
       }
       getStories();
-
-      console.log(storyList);
     },
     [dbName]
   );
-
-  const satisfiedOrIntensity = (satisfied) => {
-    if (!satisfied) return "";
-
-    if (isNaN(parseInt(satisfied))) {
-      return (
-        <>
-          <u>Satisfied</u>: {satisfied ? "Yes" : "No"}
-        </>
-      );
-    } else {
-      let intensityObj = {
-        1: "No big Deal",
-        2: "mild",
-        3: "Moderate",
-        4: "Severe",
-      };
-      return (
-        <>
-          <u>Intensity</u>:&nbsp;
-          {intensityObj[satisfied]}
-        </>
-      );
-    }
-  };
 
   return (
     <div className={classes.root}>
@@ -65,15 +38,15 @@ const StoriesSection = ({ dbName, siteName, vaccines, stats }) => {
             <div className={classes.paper}>
               <div className="StoriesSection-stories">
                 {storyList.length > 0 ? (
-                  storyList.map((currStory) => (
-                    <Box justifyContent="center">
+                  storyList.map((currStory, idx) => (
+                    <Box justifyContent="center" key={idx}>
                       <h4>
-                        {currStory.username}&emsp;
-                        <span id="age-gender">
-                          <u>Age</u>: {currStory.age}&ensp; <u>Gender</u>:&nbsp;
-                          {currStory.gender}&ensp;
-                          {satisfiedOrIntensity(currStory.satisfied)}
-                        </span>
+                        {currStory.username}&emsp;&emsp;
+                        <i id="age-gender">
+                          <u>Age</u>: {currStory.age}&emsp;
+                          <u>Gender</u>: {currStory.gender}&emsp;
+                          <u>Satisfied</u>: {currStory.satisfied}
+                        </i>
                       </h4>
                       <p>{currStory.story}</p>
                     </Box>

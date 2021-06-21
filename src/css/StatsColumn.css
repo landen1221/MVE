@@ -1,5 +1,6 @@
 .Stats {
   border: 1px solid black;
+  padding: 10px;
 }
 .Stats h4 {
   text-align: center;
@@ -14,10 +15,5 @@
   font-size: 0.8em;
   margin: 0;
   text-align: center;
-  margin-bottom: 5px;
-}
-
-.Stats .intensity {
-  text-align: center;
-  margin: auto;
+  margin-bottom: 10px;
 }

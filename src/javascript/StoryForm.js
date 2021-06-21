@@ -24,31 +24,31 @@ const StoryForm = ({ vaccines }) => {
   };
 
   const [formData, setFormData] = useState(initialData);
+  const [errors, setErrors] = useState({})
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    let storyData = {
-      username: formData.username,
-      vaccine: formData.vaccine,
-      satisfied: formData.satisfied,
-      age: formData.age,
-      gender: formData.gender,
-      story: formData.story,
-    };
 
     async function addStory() {
-      let added = await MVEAPI.postStory(storyData);
+      let added = await MVEAPI.postStory(formData);
       console.log(added);
     }
 
     addStory();
 
     console.log("Success. User data:");
-    console.log(storyData);
+    // console.log(storyData);
     history.push(
-      storyData.vaccine === "COVID" ? `/covid` : `/vaccine/${storyData.vaccine}`
+      formData.vaccine === "COVID" ? `/covid` : `/vaccine/${formData.vaccine}`
     );
   };
+
+  const basicValidator = (formData) => {
+    if(!formData.username)
+    if(!formData.username)
+    if(!formData.username) 
+
+  }
 
   const handleChange = (evt) => {
     const { name, value } = evt.target;
@@ -61,12 +61,13 @@ const StoryForm = ({ vaccines }) => {
 
   const extraVaccineRow = (
     <FormControl component="fieldset">
-      <FormLabel component="legend">Glad I got the Vaccine:</FormLabel>
+      <FormLabel component="legend">Glad I got the Vaccine:*</FormLabel>
       <RadioGroup
         aria-label="satisfied"
         name="satisfied"
         value={formData.satisfied}
         onChange={handleChange}
+        required
       >
         <FormControlLabel value="true" control={<Radio />} label="Yes" />
         <FormControlLabel value="false" control={<Radio />} label="No" />
@@ -83,10 +84,18 @@ const StoryForm = ({ vaccines }) => {
         value={formData.satisfied}
         onChange={handleChange}
       >
-        <FormControlLabel value="1" control={<Radio />} label="No Big Deal" />
-        <FormControlLabel value="2" control={<Radio />} label="Mild" />
-        <FormControlLabel value="3" control={<Radio />} label="Moderate" />
-        <FormControlLabel value="4" control={<Radio />} label="Severe" />
+        <FormControlLabel
+          value="No Big Deal"
+          control={<Radio />}
+          label="No Big Deal"
+        />
+        <FormControlLabel value="Mild" control={<Radio />} label="Mild" />
+        <FormControlLabel
+          value="Moderate"
+          control={<Radio />}
+          label="Moderate"
+        />
+        <FormControlLabel value="Severe" control={<Radio />} label="Severe" />
       </RadioGroup>
     </FormControl>
   );
@@ -108,6 +117,7 @@ const StoryForm = ({ vaccines }) => {
           value={formData.username}
           helperText="*You may keep auto-generated username (Save username to find your post later)"
           onChange={handleChange}
+          required
         />
         <br />
         <br />
@@ -148,6 +158,7 @@ const StoryForm = ({ vaccines }) => {
           name="vaccine"
           onChange={handleChange}
           variant="outlined"
+          required
         >
           <MenuItem key={"covid"} value={"covid"} name={"covid"}>
             COVID
@@ -157,19 +168,12 @@ const StoryForm = ({ vaccines }) => {
               {siteName}
             </MenuItem>
           ))}
-
-          {/* 
-          {vaccineOptions.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))} */}
         </TextField>
         <br />
         <br />
         {formData.vaccine === "covid" ? extraCovidRow : extraVaccineRow}
         <br />
-        <p id="story-label">My Story:</p>
+        <p id="story-label">My Story:*</p>
         <TextField
           placeholder="After my 2nd vaccine I didn't feel great for a few days, but I'm glad I got it because..."
           id="story-textarea"
@@ -180,6 +184,7 @@ const StoryForm = ({ vaccines }) => {
           name="story"
           value={formData.story}
           onChange={handleChange}
+          required
         />
         <br />
         <br />

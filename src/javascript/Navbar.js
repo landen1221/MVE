@@ -57,7 +57,7 @@ function Navbar() {
       <AppBar position="fixed">
         <Toolbar>
           <Link to="/">
-            <Typography variant="p" noWrap id="logo">
+            <Typography variant="inherit" noWrap id="logo">
               MyVaccineExperience.org
             </Typography>
           </Link>
