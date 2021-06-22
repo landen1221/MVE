@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -7,7 +7,7 @@ import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 import Button from "@material-ui/core/Button";
 import "../css/Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   search: {
@@ -49,8 +49,29 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Navbar() {
+function Navbar({ setSearchBy }) {
+  let history = useHistory();
   const classes = useStyles();
+
+  const [searchTerm, setSearchTerm] = useState({ search: "" });
+
+  // example search url: myvaccineexprience.org/story/search?q=worth+it
+  function handleSubmit(evt) {
+    console.log(evt.key);
+    if (evt.key === "Enter") {
+      let finalSearch = searchTerm.search.split(" ").join("+");
+      setSearchBy(finalSearch);
+      history.push(`/story/search`);
+    }
+  }
+
+  function handleChange(evt) {
+    const { name, value } = evt.target;
+    setSearchTerm((f) => ({
+      ...f,
+      [name]: value,
+    }));
+  }
 
   return (
     <div className={classes.grow}>
@@ -67,6 +88,10 @@ function Navbar() {
             </div>
             <InputBase
               placeholder="Search…"
+              name="search"
+              value={searchTerm.search}
+              onChange={handleChange}
+              onKeyPress={handleSubmit}
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,

@@ -1,3 +1,4 @@
-.Story p {
-  margin-right: 50px;
+.Story span {
+  text-decoration: underline;
+  font-size: 0.8em;
 }

@@ -5,6 +5,8 @@ import Navbar from "./javascript/Navbar";
 import { useEffect, useState } from "react";
 import MVEAPI from "./api";
 import StoryForm from "./javascript/StoryForm";
+import Header from "./javascript/Header";
+import SearchedStories from "./javascript/SearchedStories";
 
 // key = how it's stored in DB
 // value = how it shows on the web-page
@@ -35,6 +37,9 @@ function App() {
   };
   const [stats, setStats] = useState(tempStats);
 
+  // handles state when searching
+  const [searchBy, setSearchBy] = useState("");
+
   useEffect(() => {
     async function getStats() {
       let stats = await MVEAPI.getStats();
@@ -45,10 +50,18 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar setSearchBy={setSearchBy} />
 
       <Switch>
+        <Route exact path="/story/search">
+          <SearchedStories
+            searchBy={searchBy}
+            vaccines={vaccines}
+            stats={stats}
+          />
+        </Route>
         <Route exact path="/covid" key="covid">
+          <Header vaccines={vaccines} />
           <StoriesSection
             dbName="covid"
             siteName="COVID"
@@ -58,6 +71,7 @@ function App() {
         </Route>
         {Object.entries(vaccines).map(([dbName, siteName]) => (
           <Route exact path={`/vaccine/${dbName}`} key={dbName}>
+            <Header vaccines={vaccines} />
             <StoriesSection
               dbName={dbName}
               siteName={siteName}

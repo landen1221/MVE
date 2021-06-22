@@ -35,6 +35,7 @@ const SortBox = ({ dbName, storyList, setStoryList, originalStories }) => {
   };
 
   const [formData, setFormData] = useState(initialValues);
+  const [filterBy, setFilterBy] = useState();
 
   function handleChange(evt) {
     const { name, value } = evt.target;

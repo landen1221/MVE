@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import MVEAPI from "../api";
-import "../css/StoriesSection.css";
+import "../css/SearchedStories.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import StatsColumn from "./StatsColumn";
@@ -14,49 +14,46 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const StoriesSection = ({ dbName, siteName, vaccines, stats }) => {
+const SearchedStories = ({ vaccines, stats, searchBy }) => {
   const classes = useStyles();
   const [storyList, setStoryList] = useState([]);
   const [originalStories, setOriginalStories] = useState([]);
 
   useEffect(
-    function getVaccineStories() {
+    function findStories() {
       async function getStories() {
-        let tempList = await MVEAPI.requestStories(dbName.toLowerCase());
-        setStoryList(tempList.data.stories);
-        setOriginalStories(tempList.data.stories);
+        let tempList = await MVEAPI.searchStories(searchBy);
+        console.log("***********************");
+        console.log(tempList.data.results.stories);
+        setStoryList(tempList.data.results.stories);
+        setOriginalStories(storyList);
       }
       getStories();
     },
-    [dbName]
+    [searchBy]
   );
 
   return (
     <div className={classes.root}>
-      <div className="StoriesSection">
+      <div className="SearchedStories">
         <h3>
-          Stories about <i>{siteName}</i>
+          Stories Matching{" "}
+          <u>{searchBy.length > 0 ? searchBy.split("+").join(" ") : "All"}</u>
         </h3>
-        <Grid container>
+        {/* <Grid container>
           <SortBox
-            dbName={dbName}
+            dbName={undefined}
             storyList={storyList}
             setStoryList={setStoryList}
             originalStories={originalStories}
           />
-        </Grid>
-        <Grid container spacing={2}>
-          <Grid item xs={9} className="StoriesSection-stories">
-            <Stories storyList={storyList} />
-          </Grid>
-
-          <Grid item xs={3}>
-            <StatsColumn stats={stats} vaccines={vaccines} />
-          </Grid>
+        </Grid> */}
+        <Grid item xs={12} className="SearchedStories-stories">
+          <Stories storyList={storyList} />
         </Grid>
       </div>
     </div>
   );
 };
 
-export default StoriesSection;
+export default SearchedStories;

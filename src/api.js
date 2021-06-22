@@ -41,6 +41,20 @@ class MVEAPI {
       throw Array.isArray(message) ? message : [message];
     }
   }
+
+  static async searchStories(query, method = "get") {
+    const url = `${BASE_URL}/story/search?q=${query}`;
+
+    try {
+      const foundStories = await axios({ url, query, method });
+      console.log(foundStories);
+      return foundStories;
+    } catch (err) {
+      console.error("API Error:", err.response);
+      let message = err.response.data.error.message;
+      throw Array.isArray(message) ? message : [message];
+    }
+  }
 }
 
 export default MVEAPI;
