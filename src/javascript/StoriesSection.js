@@ -1,27 +1,31 @@
 import { useEffect, useState } from "react";
 import MVEAPI from "../api";
-import Box from "@material-ui/core/Box";
 import "../css/StoriesSection.css";
 import Header from "./Header";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import StatsColumn from "./StatsColumn";
+import Story from "./Story";
+import SortBox from "./SortBox";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    flexWrap: "wrap",
   },
 }));
 
 const StoriesSection = ({ dbName, siteName, vaccines, stats }) => {
   const classes = useStyles();
   const [storyList, setStoryList] = useState([]);
+  const [originalStories, setOriginalStories] = useState([]);
 
   useEffect(
     function getVaccineStories() {
       async function getStories() {
         let tempList = await MVEAPI.requestStories(dbName.toLowerCase());
         setStoryList(tempList.data.stories);
+        setOriginalStories(tempList.data.stories);
       }
       getStories();
     },
@@ -32,32 +36,23 @@ const StoriesSection = ({ dbName, siteName, vaccines, stats }) => {
     <div className={classes.root}>
       <Header vaccines={vaccines} />
       <div className="StoriesSection">
-        <h3>Stories about {siteName}</h3>
+        <h3>
+          Stories about <i>{siteName}</i>
+        </h3>
+        <Grid container>
+          <SortBox
+            dbName={dbName}
+            storyList={storyList}
+            setStoryList={setStoryList}
+            originalStories={originalStories}
+          />
+        </Grid>
         <Grid container spacing={2}>
-          <Grid item xs={10} className="stories">
-            {storyList.length > 0 ? (
-              storyList.map((currStory, idx) => (
-                <Box justifyContent="center" key={idx}>
-                  <h4>
-                    {currStory.username}&emsp;&emsp;
-                    <i id="age-gender">
-                      <u>Age</u>: {currStory.age}&emsp;
-                      <u>Gender</u>: {currStory.gender}&emsp;
-                      <u>Satisfied</u>: {currStory.satisfied}
-                    </i>
-                  </h4>
-                  <p>{currStory.story}</p>
-                </Box>
-              ))
-            ) : (
-              <i id="no-stories">
-                <br />
-                no stories available
-              </i>
-            )}
+          <Grid item xs={9} className="StoriesSection-stories">
+            <Story storyList={storyList} />
           </Grid>
 
-          <Grid item xs={2}>
+          <Grid item xs={3}>
             <StatsColumn stats={stats} vaccines={vaccines} />
           </Grid>
         </Grid>

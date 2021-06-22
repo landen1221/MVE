@@ -18,6 +18,10 @@
   font-size: 0.9em;
 }
 
+/* .StoryForm .MuiInput-input {
+  padding: 10px 14px;
+} */
+
 .MuiInputBase-root {
   width: 35em;
 }

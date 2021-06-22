@@ -23,14 +23,14 @@ const StoryForm = ({ vaccines }) => {
       username: UsernameGenerator.generateUsername(),
       vaccine: "",
       satisfied: "",
-      age: "",
+      age: undefined,
       gender: "",
       story: "",
     },
 
     validationSchema: Yup.object({
       username: Yup.string()
-        .max(20, <p className="error">Must be 20 characters or less</p>)
+        .max(25, <p className="error">Must be 25 characters or less</p>)
         .required(<p className="error">Username Required</p>),
       vaccine: Yup.string().required(
         <p className="error">Must select COVID or Vaccine</p>
@@ -44,7 +44,8 @@ const StoryForm = ({ vaccines }) => {
         .max(
           120,
           <p className="error">Invalid age. Enter age or leave blank</p>
-        ),
+        )
+        .nullable(),
       gender: Yup.string(),
       story: Yup.string()
         .min(25, <p className="error">Story must be at least 25 characters.</p>)
@@ -82,8 +83,8 @@ const StoryForm = ({ vaccines }) => {
         onBlur={formik.handleBlur}
         onChange={formik.handleChange}
       >
-        <FormControlLabel value="true" control={<Radio />} label="Yes" />
-        <FormControlLabel value="false" control={<Radio />} label="No" />
+        <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
+        <FormControlLabel value="No" control={<Radio />} label="No" />
       </RadioGroup>
     </FormControl>
   );
@@ -118,8 +119,10 @@ const StoryForm = ({ vaccines }) => {
     <div className="StoryForm">
       <h3>Submit Story about your COVID or Vaccine experience:</h3>
       <p id="story-helper">
-        Story should be 1st hand experience (not something you heard/read) This
-        is a public forum. Please don't include personal/private information
+        Story should be 1st hand experience (not something you heard/read){" "}
+        <br />
+        This is a public forum. Please don't include personal/private
+        information
       </p>
 
       <form onSubmit={formik.handleSubmit}>

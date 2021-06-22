@@ -1,0 +1,32 @@
+.SortBox form {
+  padding-top: 7px;
+  display: inline;
+}
+
+.SortBox .MuiOutlinedInput-root {
+  height: 30px;
+  width: 10em;
+  background-color: white;
+  display: inline;
+}
+
+.SortBox .MuiInputBase-root {
+  font-size: 0.75rem;
+  margin: 10px;
+  display: inline;
+}
+
+.SortBox h4 {
+  display: inline;
+  margin-top: 70px;
+  margin-left: 0;
+}
+
+.SortBox .MuiButton-label {
+  margin-top: 16px;
+}
+
+.SortBox #clear {
+  text-decoration: underline;
+  margin-top: 0;
+}

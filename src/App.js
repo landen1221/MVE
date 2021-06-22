@@ -1,10 +1,10 @@
 import "./App.css";
 import StoriesSection from "./javascript/StoriesSection";
-import StoryForm from "./archive/StoryForm";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Navbar from "./javascript/Navbar";
 import { useEffect, useState } from "react";
 import MVEAPI from "./api";
+import StoryForm from "./javascript/StoryForm";
 
 // key = how it's stored in DB
 // value = how it shows on the web-page

@@ -39,7 +39,7 @@ const StatsColumn = ({ stats, vaccines }) => {
         <h4>Satified w/ Vaccine:</h4>
         <hr />
         {Object.entries(vaccines).map(([dbName, siteName]) => (
-          <p key={dbName}>
+          <p key={dbName} className="satisfied">
             <b>{siteName === "Johnson & Johnson" ? "J&J" : siteName}: </b>
             {stats[dbName]}%
           </p>
@@ -55,7 +55,7 @@ const StatsColumn = ({ stats, vaccines }) => {
         {stats["covid"].map((intensity) => (
           <p key={intensity["satisfied"]} className="intensity">
             <b>{intensity["satisfied"]}: </b>{" "}
-            {Math.round((intensity["count"] / totalCovid) * 100 * 100) / 100}%
+            {Math.round((intensity["count"] / totalCovid) * 100 * 10) / 10}%
           </p>
         ))}
       </div>

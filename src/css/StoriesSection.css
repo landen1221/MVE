@@ -1,9 +1,15 @@
-.MuiBox-root {
-  border: 1px solid rgba(170, 50, 220, 0.6);
-  border-radius: 10px;
-  width: 90%;
+.StoriesSection {
+  width: 60%;
   margin: auto;
-  margin-top: 15px;
+}
+
+.MuiBox-root {
+  border: 1px solid rgba(63, 63, 63, 0.753);
+  border-radius: 10px;
+  width: 85%;
+  margin-left: 0;
+  margin-top: 1px;
+  margin-bottom: 15px;
 }
 
 .StoriesSection-stories {
@@ -25,16 +31,9 @@
 
 .StoriesSection p {
   text-align: left;
-  margin-left: 3em;
+  margin-left: 2.5em;
   margin-top: 0.5em;
-}
-
-.StoriesSection {
-  width: 70%;
-  margin: auto;
-  align-content: center;
-  align-content: center;
-  text-align: center;
+  margin-right: 2.5em;
 }
 
 .StoriesSection .stories {
@@ -42,4 +41,13 @@
   align-content: center;
   text-align: center;
   margin: 0;
+}
+
+.StoriesSection h3 {
+  text-align: left;
+  margin-left: 1.5em;
+  margin-bottom: 0.5em;
+  font-size: 1em;
+  /* font-weight: normal; */
+  color: rgba(63, 63, 63, 0.753);
 }
