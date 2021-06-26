@@ -17,11 +17,11 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: "100%",
+    marginRight: theme.spacing(10),
+    marginLeft: theme.spacing(10),
+    width: "50%",
     [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(3),
+      marginLeft: theme.spacing(0),
       width: "auto",
     },
   },
@@ -74,7 +74,7 @@ function Navbar({ setSearchBy }) {
   }
 
   return (
-    <div className={classes.grow}>
+    <div className={`Navbar ${classes.grow}`}>
       <AppBar position="fixed">
         <Toolbar>
           <Link to="/">

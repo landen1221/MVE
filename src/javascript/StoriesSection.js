@@ -28,7 +28,7 @@ const StoriesSection = ({ dbName, siteName, vaccines, stats }) => {
       }
       getStories();
     },
-    [dbName]
+    [dbName, storyList]
   );
 
   return (
@@ -37,16 +37,15 @@ const StoriesSection = ({ dbName, siteName, vaccines, stats }) => {
         <h3>
           Stories about <i>{siteName}</i>
         </h3>
-        <Grid container>
-          <SortBox
-            dbName={dbName}
-            storyList={storyList}
-            setStoryList={setStoryList}
-            originalStories={originalStories}
-          />
-        </Grid>
+
         <Grid container spacing={2}>
           <Grid item xs={9} className="StoriesSection-stories">
+            <SortBox
+              dbName={dbName}
+              storyList={storyList}
+              setStoryList={setStoryList}
+              originalStories={originalStories}
+            />
             <Stories storyList={storyList} />
           </Grid>
 

@@ -50,6 +50,8 @@ function App() {
 
   return (
     <div className="App">
+      {/* <Grid container>
+        <Grid item xs={12}> */}
       <Navbar setSearchBy={setSearchBy} />
 
       <Switch>
@@ -92,6 +94,8 @@ function App() {
       <br />
       <br />
       <br />
+      {/* </Grid>
+      </Grid> */}
     </div>
   );
 }

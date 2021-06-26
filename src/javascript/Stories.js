@@ -23,7 +23,7 @@ const Stories = ({ storyList }) => {
       {storyList.length > 0 ? (
         storyList.map((currStory, idx) => (
           <Paper elevation={3} key={idx}>
-            <Story currStory={currStory} />
+            <Story currStory={storyList[storyList.length - 1 - idx]} />
           </Paper>
         ))
       ) : (

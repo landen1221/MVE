@@ -21,9 +21,9 @@ const Story = ({ currStory }) => {
       <h4>
         {currStory.username}&emsp;&emsp;
         <i id="age-gender">
-          <u>Age</u>: {currStory.age}&emsp;
-          <u>Gender</u>: {currStory.gender}&emsp;
-          <u>Satisfied</u>: {currStory.satisfied}
+          <u>Age</u>: {currStory.age ? currStory.age : "n/a"}&emsp;
+          <u>Gender</u>: {currStory.gender ? currStory.gender : "n/a"}&emsp;
+          <u>Satisfied</u>: {currStory.satisfied ? currStory.satisfied : "n/a"}
         </i>
       </h4>
       {/* <p>{currStory.story}</p> */}

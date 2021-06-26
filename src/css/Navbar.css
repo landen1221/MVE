@@ -6,17 +6,12 @@
 }
 
 .MuiAppBar-positionFixed {
-  margin-left: 250px;
   align-items: center;
 }
 
 .makeStyles-search-3 {
   margin-left: 25em;
   margin-right: 25em;
-}
-
-.MuiButton-outlined {
-  border: 1px solid #fff;
 }
 
 .MuiButton-root {
@@ -26,4 +21,14 @@
 
 #logo {
   color: white;
+  margin-right: 5em;
+}
+
+.Navbar button {
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+}
+
+.Navbar .MuiButton-outlined {
+  border: 1px solid #fff;
 }

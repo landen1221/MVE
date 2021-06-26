@@ -3,9 +3,7 @@ import MVEAPI from "../api";
 import "../css/SearchedStories.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import StatsColumn from "./StatsColumn";
 import Stories from "./Stories";
-import SortBox from "./SortBox";
 
 const useStyles = makeStyles((theme) => ({
   root: {

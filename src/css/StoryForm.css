@@ -26,12 +26,33 @@
   width: 35em;
 }
 
+#age-field {
+  text-align: center;
+}
+
 .MuiFormControl-root {
   margin-left: 0;
 }
 
 .MuiFormGroup-root {
   align-content: center;
+}
+
+.StoryForm .MuiFormControlLabel-root {
+  margin: 0.3em;
+}
+
+.StoryForm .MuiIconButton-label {
+  margin-right: 0.5em;
+}
+
+.StoryForm .MuiFormLabel-root {
+  margin-bottom: 0.5em;
+}
+
+.StoryForm .MuiRadio-root {
+  margin: 0;
+  padding: 0;
 }
 
 .StoryForm h3 {
@@ -44,7 +65,7 @@
   padding: 0;
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1;
+  line-height: 0.7;
   letter-spacing: 0.00938em;
   margin-bottom: 0.5rem;
 }
@@ -62,4 +83,10 @@
   margin-bottom: 15px;
   font-family: Roboto, Helvetica, Arial, sans-serif;
   font-size: 12px;
+}
+
+#center-recaptcha {
+  align-items: center;
+  /* text-align: center; */
+  /* align-content: center; */
 }

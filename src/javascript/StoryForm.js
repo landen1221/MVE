@@ -10,13 +10,21 @@ import MenuItem from "@material-ui/core/MenuItem";
 import "../css/StoryForm.css";
 import UsernameGenerator from "username-generator";
 import MVEAPI from "../api";
+// import Recaptcha from "react-recaptcha";
 
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
+// recaptcha:
+// site key: 6LcuYE4bAAAAAF8mBK_1eG5aEBbfLcv4JKBhv138
+// secret key: 6LcuYE4bAAAAAPxevTvOBqq0IJFTyJLw2q7FiyHk
+
 const StoryForm = ({ vaccines }) => {
   let history = useHistory();
+
+  // FIXME: Delete when live (Commented out portions of code below are referencing recaptcha)
+  const siteKey = "6LcuYE4bAAAAAF8mBK_1eG5aEBbfLcv4JKBhv138";
 
   const formik = useFormik({
     initialValues: {
@@ -30,7 +38,7 @@ const StoryForm = ({ vaccines }) => {
 
     validationSchema: Yup.object({
       username: Yup.string()
-        .max(25, <p className="error">Must be 25 characters or less</p>)
+        .max(35, <p className="error">Must be 35 characters or less</p>)
         .required(<p className="error">Username Required</p>),
       vaccine: Yup.string().required(
         <p className="error">Must select COVID or Vaccine</p>
@@ -48,7 +56,7 @@ const StoryForm = ({ vaccines }) => {
         .nullable(),
       gender: Yup.string(),
       story: Yup.string()
-        .min(25, <p className="error">Story must be at least 25 characters.</p>)
+        .min(10, <p className="error">Story must be at least 10 characters.</p>)
         .required(
           <p className="error">
             This site is built by your stories. Please share your experience.
@@ -68,14 +76,13 @@ const StoryForm = ({ vaccines }) => {
         values.vaccine === "COVID" ? `/covid` : `/vaccine/${values.vaccine}`
       );
     },
-    // onSubmit: (values) => {
-    //   alert(JSON.stringify(values, null, 2));
-    // },
   });
 
   const extraVaccineRow = (
     <FormControl component="fieldset">
-      <FormLabel component="legend">Glad I got the Vaccine:*</FormLabel>
+      <FormLabel component="legend">
+        <u>Glad I got the Vaccine:</u>
+      </FormLabel>
       <RadioGroup
         aria-label="satisfied"
         name="satisfied"
@@ -91,7 +98,9 @@ const StoryForm = ({ vaccines }) => {
 
   const extraCovidRow = (
     <FormControl component="fieldset">
-      <FormLabel component="legend">Intensity of Illness</FormLabel>
+      <FormLabel component="legend">
+        <u>Intensity of Illness</u>
+      </FormLabel>
       <RadioGroup
         aria-label="satisfied"
         name="satisfied"
@@ -114,6 +123,15 @@ const StoryForm = ({ vaccines }) => {
       </RadioGroup>
     </FormControl>
   );
+
+  // const recaptchaLoaded = () => {
+  //   console.log("recaptcha loaded");
+  // };
+
+  // const verifyCallback = (response) => {
+  //   // if response === true, changestate to treu
+  //   console.log();
+  // };
 
   return (
     <div className="StoryForm">
@@ -173,6 +191,7 @@ const StoryForm = ({ vaccines }) => {
         <br />
         <br />
         <TextField
+          id="age-field"
           label="Age (Optional)"
           placeholder="Optional"
           variant="outlined"
@@ -196,13 +215,13 @@ const StoryForm = ({ vaccines }) => {
           onBlur={formik.handleBlur}
           onChange={formik.handleChange}
         >
-          <MenuItem key="male" value="male">
+          <MenuItem key="Male" value="Male">
             Male
           </MenuItem>
-          <MenuItem key="female" value="female">
+          <MenuItem key="Female" value="Female">
             Female
           </MenuItem>
-          <MenuItem key="other" value="other">
+          <MenuItem key="Other" value="Other">
             Other
           </MenuItem>
         </TextField>
@@ -229,6 +248,9 @@ const StoryForm = ({ vaccines }) => {
         ) : null}
 
         <br />
+
+        {/* <Recaptcha sitekey={siteKey} /> */}
+
         <br />
 
         <Link to="/">

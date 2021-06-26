@@ -1,8 +1,3 @@
-CREATE TABLE vaccines (
-    vaccine_id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL
-);
-
 CREATE TABLE stories (
     story_id SERIAL PRIMARY KEY,
     username VARCHAR(20) UNIQUE NOT NULL,
@@ -13,6 +8,13 @@ CREATE TABLE stories (
     story VARCHAR(1500) NOT NULL
 );
 
+-- FIXME: Potentially Remove
+CREATE TABLE vaccines (
+    vaccine_id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL
+);
+
+-- FIXME: Potentially Remove
 CREATE TABLE vaccine_story (
     vs_id SERIAL PRIMARY KEY,
     vaccine_id INTEGER REFERENCES vaccines ON DELETE CASCADE,

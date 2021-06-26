@@ -38,6 +38,9 @@ const StatsColumn = ({ stats, vaccines }) => {
       <div className="Stats">
         <h4>Satified w/ Vaccine:</h4>
         <hr />
+        <p id="intensity-helper">
+          (From <u>{stats.vaccineCount}</u> users)
+        </p>
         {Object.entries(vaccines).map(([dbName, siteName]) => (
           <p key={dbName} className="satisfied">
             <b>{siteName === "Johnson & Johnson" ? "J&J" : siteName}: </b>
