@@ -12,10 +12,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SearchedStories = ({ vaccines, stats, searchBy }) => {
+const SearchedStories = ({ vaccines, searchBy, search }) => {
   const classes = useStyles();
   const [storyList, setStoryList] = useState([]);
-  const [originalStories, setOriginalStories] = useState([]);
 
   useEffect(
     function findStories() {
@@ -24,7 +23,6 @@ const SearchedStories = ({ vaccines, stats, searchBy }) => {
         console.log("***********************");
         console.log(tempList.data.results.stories);
         setStoryList(tempList.data.results.stories);
-        setOriginalStories(storyList);
       }
       getStories();
     },
@@ -47,7 +45,7 @@ const SearchedStories = ({ vaccines, stats, searchBy }) => {
           />
         </Grid> */}
         <Grid item xs={12} className="SearchedStories-stories">
-          <Stories storyList={storyList} />
+          <Stories storyList={storyList} search={search} vaccines={vaccines} />
         </Grid>
       </div>
     </div>

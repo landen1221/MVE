@@ -10,7 +10,7 @@ import SearchedStories from "./javascript/SearchedStories";
 
 // key = how it's stored in DB
 // value = how it shows on the web-page
-// covid = covid: "COVID"
+// covid = {covid: "COVID"}
 const vaccines = {
   johnsonandjohnson: "Johnson & Johnson",
   astrazeneca: "AstraZeneca",
@@ -60,6 +60,7 @@ function App() {
             searchBy={searchBy}
             vaccines={vaccines}
             stats={stats}
+            search={true}
           />
         </Route>
         <Route exact path="/covid" key="covid">
@@ -94,8 +95,6 @@ function App() {
       <br />
       <br />
       <br />
-      {/* </Grid>
-      </Grid> */}
     </div>
   );
 }

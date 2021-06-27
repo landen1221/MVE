@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Stories = ({ storyList }) => {
+const Stories = ({ storyList, search, vaccines }) => {
   const classes = useStyles();
 
   return (
@@ -23,7 +23,11 @@ const Stories = ({ storyList }) => {
       {storyList.length > 0 ? (
         storyList.map((currStory, idx) => (
           <Paper elevation={3} key={idx}>
-            <Story currStory={storyList[storyList.length - 1 - idx]} />
+            <Story
+              currStory={storyList[storyList.length - 1 - idx]}
+              search={search}
+              vaccines={vaccines}
+            />
           </Paper>
         ))
       ) : (

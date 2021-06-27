@@ -17,19 +17,17 @@ const useStyles = makeStyles((theme) => ({
 const StoriesSection = ({ dbName, siteName, vaccines, stats }) => {
   const classes = useStyles();
   const [storyList, setStoryList] = useState([]);
-  const [originalStories, setOriginalStories] = useState([]);
+  const [originalStories, setOriginalStories] = useState();
 
-  useEffect(
-    function getVaccineStories() {
-      async function getStories() {
-        let tempList = await MVEAPI.requestStories(dbName.toLowerCase());
-        setStoryList(tempList.data.stories);
-        setOriginalStories(tempList.data.stories);
-      }
-      getStories();
-    },
-    [dbName, storyList]
-  );
+  // get list of all stories based on vaccine or covid selection
+  useEffect(() => {
+    async function getStories() {
+      let tempList = await MVEAPI.requestStories(dbName.toLowerCase());
+      setStoryList(tempList.data.stories);
+      setOriginalStories(tempList.data.stories);
+    }
+    getStories();
+  }, [dbName]);
 
   return (
     <div className={classes.root}>

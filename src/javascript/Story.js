@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../css/Story.css";
 import Button from "@material-ui/core/Button";
 
-const Story = ({ currStory }) => {
+const Story = ({ currStory, search, vaccines }) => {
   let maxInitialCount = 250;
   const needsTruncated = currStory.story.length > maxInitialCount;
 
@@ -19,11 +19,22 @@ const Story = ({ currStory }) => {
   return (
     <div className="Story">
       <h4>
-        {currStory.username}&emsp;&emsp;
+        {currStory.username}&emsp;&emsp;&emsp;
         <i id="age-gender">
-          <u>Age</u>: {currStory.age ? currStory.age : "n/a"}&emsp;
-          <u>Gender</u>: {currStory.gender ? currStory.gender : "n/a"}&emsp;
+          <u>Age</u>: {currStory.age ? currStory.age : "n/a"}&emsp;&emsp;
+          <u>Gender</u>: {currStory.gender ? currStory.gender : "n/a"}
+          &emsp;&emsp;
           <u>Satisfied</u>: {currStory.satisfied ? currStory.satisfied : "n/a"}
+          &emsp;&emsp;
+          {search && (
+            <>
+              <u>Story about</u>:{" "}
+              {currStory.vaccine === "covid"
+                ? "COVID"
+                : vaccines[currStory.vaccine]}
+              &emsp;
+            </>
+          )}
         </i>
       </h4>
       {/* <p>{currStory.story}</p> */}

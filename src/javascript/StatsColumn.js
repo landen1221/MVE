@@ -29,9 +29,24 @@ import "../css/StatsColumn.css";
 
 const StatsColumn = ({ stats, vaccines }) => {
   let totalCovid = 0;
+  const intensityOrder = ["No Big Deal", "Mild", "Moderate", "Severe"];
+
   for (let val of stats["covid"]) {
     totalCovid += parseInt(val["count"]);
   }
+
+  const covidStats = (intensity) => {
+    for (let val of stats["covid"]) {
+      if (val.satisfied === intensity) {
+        return (
+          <p key={intensity} className="intensity">
+            <b>{intensity}: </b>
+            {Math.round((val["count"] / totalCovid) * 100 * 10) / 10}%
+          </p>
+        );
+      }
+    }
+  };
 
   return (
     <>
@@ -55,12 +70,7 @@ const StatsColumn = ({ stats, vaccines }) => {
         <p id="intensity-helper">
           (Out of <u>{totalCovid}</u> cases)
         </p>
-        {stats["covid"].map((intensity) => (
-          <p key={intensity["satisfied"]} className="intensity">
-            <b>{intensity["satisfied"]}: </b>{" "}
-            {Math.round((intensity["count"] / totalCovid) * 100 * 10) / 10}%
-          </p>
-        ))}
+        {intensityOrder.map((intensity) => covidStats(intensity))}
       </div>
     </>
   );

@@ -4,7 +4,7 @@
 }
 
 .SortBox .MuiOutlinedInput-root {
-  height: 30px;
+  height: 3em;
   width: 10em;
   background-color: white;
   display: inline;
@@ -22,8 +22,8 @@
   margin-left: 0;
 }
 
-.SortBox .MuiButton-label {
-  margin-top: 16px;
+.SortBox .MuiTouchRipple-root {
+  margin-top: 0;
 }
 
 .SortBox #clear {
@@ -31,6 +31,14 @@
   margin-top: 0;
 }
 
-.makeStyles-root-46 {
-  width: 80em;
+.SortBox .MuiPaper-root {
+  margin: 5px 25px;
+}
+
+.SortBox .MuiButton-label {
+  margin-top: 16px;
+}
+
+#filter {
+  margin-top: 0px;
 }

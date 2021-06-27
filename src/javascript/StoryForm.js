@@ -10,7 +10,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import "../css/StoryForm.css";
 import UsernameGenerator from "username-generator";
 import MVEAPI from "../api";
-// import Recaptcha from "react-recaptcha";
+import Recaptcha from "react-recaptcha";
 
 import React from "react";
 import { useFormik } from "formik";
@@ -24,7 +24,7 @@ const StoryForm = ({ vaccines }) => {
   let history = useHistory();
 
   // FIXME: Delete when live (Commented out portions of code below are referencing recaptcha)
-  const siteKey = "6LcuYE4bAAAAAF8mBK_1eG5aEBbfLcv4JKBhv138";
+  // const siteKey = process.env.REACT_APP_SITE_KEY;
 
   const formik = useFormik({
     initialValues: {
@@ -124,23 +124,13 @@ const StoryForm = ({ vaccines }) => {
     </FormControl>
   );
 
-  // const recaptchaLoaded = () => {
-  //   console.log("recaptcha loaded");
-  // };
-
-  // const verifyCallback = (response) => {
-  //   // if response === true, changestate to treu
-  //   console.log();
-  // };
-
   return (
     <div className="StoryForm">
       <h3>Submit Story about your COVID or Vaccine experience:</h3>
       <p id="story-helper">
         Story should be 1st hand experience (not something you heard/read){" "}
         <br />
-        This is a public forum. Please don't include personal/private
-        information
+        This is a public forum. Don't include personal/private information
       </p>
 
       <form onSubmit={formik.handleSubmit}>
@@ -248,8 +238,9 @@ const StoryForm = ({ vaccines }) => {
         ) : null}
 
         <br />
-
-        {/* <Recaptcha sitekey={siteKey} /> */}
+        {/* <div id="center-recaptcha">
+          <Recaptcha sitekey={siteKey} />
+        </div> */}
 
         <br />
 

@@ -32,3 +32,8 @@
 .Navbar .MuiButton-outlined {
   border: 1px solid #fff;
 }
+
+#Navbar {
+  background-color: red;
+  color: green;
+}
