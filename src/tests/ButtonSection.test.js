@@ -1,11 +1,12 @@
+import React from "react";
 import { render } from "@testing-library/react";
-import Header from "./Header";
+import ButtonSection from "../javascript/ButtonSection";
 
 it("renders without crashing", function () {
-  render(<Header />);
+  render(<ButtonSection />);
 });
 
-// // placeholder
+// placeholder
 // test("1 === 1", () => {
 //   expect(1).toBe(1);
 // });

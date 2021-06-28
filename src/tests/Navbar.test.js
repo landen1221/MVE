@@ -1,9 +1,14 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import ButtonSection from "./ButtonSection";
+import Navbar from "./Navbar";
+import { BrowserRouter } from "react-router-dom";
 
 it("renders without crashing", function () {
-  render(<ButtonSection />);
+  render(
+    <BrowserRouter>
+      <Navbar />
+    </BrowserRouter>
+  );
 });
 
 // placeholder

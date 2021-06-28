@@ -10,18 +10,27 @@ import MenuItem from "@material-ui/core/MenuItem";
 import "../css/StoryForm.css";
 import UsernameGenerator from "username-generator";
 import MVEAPI from "../api";
+import FingerprintJS from "@fingerprintjs/fingerprintjs";
 import Recaptcha from "react-recaptcha";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-// recaptcha:
-// site key: 6LcuYE4bAAAAAF8mBK_1eG5aEBbfLcv4JKBhv138
-// secret key: 6LcuYE4bAAAAAPxevTvOBqq0IJFTyJLw2q7FiyHk
-
 const StoryForm = ({ vaccines }) => {
   let history = useHistory();
+  const fpPromise = FingerprintJS.load();
+
+  // Obtains fingerprint id -- Need to add to db and cross check
+  useEffect(() => {
+    const getFingerPrint = async () => {
+      const fp = await fpPromise;
+      const result = await fp.get();
+      const visitorID = result.visitorId;
+      console.log(visitorID);
+    };
+    getFingerPrint();
+  }, []);
 
   // FIXME: Delete when live (Commented out portions of code below are referencing recaptcha)
   // const siteKey = process.env.REACT_APP_SITE_KEY;

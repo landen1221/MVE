@@ -5,6 +5,7 @@
   "dependencies": {
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-react": "^7.14.5",
+    "@fingerprintjs/fingerprintjs": "^3.2.0",
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
     "@testing-library/user-event": "github:testing-library/user-event",
