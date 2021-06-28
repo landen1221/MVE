@@ -6,6 +6,7 @@ CREATE TABLE stories (
     age INTEGER NULL,
     gender VARCHAR(7) NULL,
     story VARCHAR(1500) NOT NULL
+    fingerprint VARCHAR(50) NOT NULL
 );
 
 -- FIXME: Potentially Remove

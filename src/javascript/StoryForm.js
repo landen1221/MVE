@@ -37,7 +37,9 @@ const StoryForm = ({ vaccines }) => {
 
   const formik = useFormik({
     initialValues: {
-      username: UsernameGenerator.generateUsername(),
+      username: `${UsernameGenerator.generateUsername()}${Math.floor(
+        Math.random() * 100
+      )}`,
       vaccine: "",
       satisfied: "",
       age: undefined,

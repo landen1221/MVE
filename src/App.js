@@ -8,6 +8,7 @@ import StoryForm from "./javascript/StoryForm";
 import Header from "./javascript/Header";
 import SearchedStories from "./javascript/SearchedStories";
 
+// vaccine variable dictates how vaccines are shown/stored
 // key = how it's stored in DB
 // value = how it shows on the web-page
 // covid = {covid: "COVID"}
