@@ -37,7 +37,6 @@ const SortBox = ({ dbName, storyList, setStoryList, originalStories }) => {
 
   useEffect(() => {
     let filteredList = originalStories;
-    console.log(filteredList);
     for (let val in formData) {
       if (formData[val]) {
         if (isNaN(parseInt(formData[val]))) {

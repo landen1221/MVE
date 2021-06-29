@@ -10,30 +10,12 @@ import MenuItem from "@material-ui/core/MenuItem";
 import "../css/StoryForm.css";
 import UsernameGenerator from "username-generator";
 import MVEAPI from "../api";
-import FingerprintJS from "@fingerprintjs/fingerprintjs";
-import Recaptcha from "react-recaptcha";
 
-import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-const StoryForm = ({ vaccines }) => {
+const StoryForm = ({ vaccines, setVisible }) => {
   let history = useHistory();
-  const fpPromise = FingerprintJS.load();
-
-  // Obtains fingerprint id -- Need to add to db and cross check
-  useEffect(() => {
-    const getFingerPrint = async () => {
-      const fp = await fpPromise;
-      const result = await fp.get();
-      const visitorID = result.visitorId;
-      console.log(visitorID);
-    };
-    getFingerPrint();
-  }, []);
-
-  // FIXME: Delete when live (Commented out portions of code below are referencing recaptcha)
-  // const siteKey = process.env.REACT_APP_SITE_KEY;
 
   const formik = useFormik({
     initialValues: {
@@ -45,6 +27,7 @@ const StoryForm = ({ vaccines }) => {
       age: undefined,
       gender: "",
       story: "",
+      // fingerprint: "",
     },
 
     validationSchema: Yup.object({
@@ -82,6 +65,7 @@ const StoryForm = ({ vaccines }) => {
       }
 
       addStory();
+      setVisible(true);
 
       history.push(
         values.vaccine === "COVID" ? `/covid` : `/vaccine/${values.vaccine}`
@@ -249,10 +233,6 @@ const StoryForm = ({ vaccines }) => {
         ) : null}
 
         <br />
-        {/* <div id="center-recaptcha">
-          <Recaptcha sitekey={siteKey} />
-        </div> */}
-
         <br />
 
         <Link to="/">

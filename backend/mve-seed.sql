@@ -6,9 +6,3 @@ VALUES ('testUser1', 'pfizer', 'Yes', 25, 'Male', 'I got the vaccine AND was s i
 ('testUser4', 'moderna', 'Yes', 55, 'Male', 'Did not feel well for a couple of days, but it was worth it to get my freedom back'),
 ('testUser5', 'johnsonandjohnson', 'Yes', 58, 'Male', 'Did not feel well for a couple of days, but it was worth it to get my freedom back'),
 ('testUser6', 'astrazeneca', 'Yes', 58, 'Male', 'Did not feel well for a couple of days, but it was worth it to get my freedom back');
-
--- FIXME: Potentially Remove
-INSERT INTO vaccines (name) VALUES ('pfizer'), ('moderna'), ('johnsonandjohnson'), ('astrazeneca'), ('covid');
-
--- FIXME: Potentially Remove
-INSERT INTO vaccine_story (vaccine_id, story_id) VALUES (1, 1), (2,2), (5,3), (2,4), (3,5); 

@@ -37,6 +37,7 @@ function App() {
     ],
   };
   const [stats, setStats] = useState(tempStats);
+  const [visible, setVisible] = useState(false);
 
   // handles state when searching
   const [searchBy, setSearchBy] = useState("");
@@ -54,7 +55,6 @@ function App() {
       {/* <Grid container>
         <Grid item xs={12}> */}
       <Navbar setSearchBy={setSearchBy} />
-
       <Switch>
         <Route exact path="/story/search">
           <SearchedStories
@@ -85,7 +85,7 @@ function App() {
           </Route>
         ))}
         <Route exact path="/add-story" key="add-story">
-          <StoryForm vaccines={vaccines} />
+          <StoryForm vaccines={vaccines} setVisible={setVisible} />
         </Route>
 
         <Redirect from="/" to="/covid" />
