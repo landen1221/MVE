@@ -37,7 +37,7 @@ function App() {
     ],
   };
   const [stats, setStats] = useState(tempStats);
-  const [visible, setVisible] = useState(false);
+  // const [visible, setVisible] = useState(false);
 
   // handles state when searching
   const [searchBy, setSearchBy] = useState("");
