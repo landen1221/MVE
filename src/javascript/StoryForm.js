@@ -14,7 +14,7 @@ import MVEAPI from "../api";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-const StoryForm = ({ vaccines, setVisible }) => {
+const StoryForm = ({ vaccines }) => {
   let history = useHistory();
 
   const formik = useFormik({
@@ -65,7 +65,6 @@ const StoryForm = ({ vaccines, setVisible }) => {
       }
 
       addStory();
-      setVisible(true);
 
       history.push(
         values.vaccine === "COVID" ? `/covid` : `/vaccine/${values.vaccine}`
