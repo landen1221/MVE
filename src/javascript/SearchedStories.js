@@ -20,8 +20,6 @@ const SearchedStories = ({ vaccines, searchBy, search }) => {
     function findStories() {
       async function getStories() {
         let tempList = await MVEAPI.searchStories(searchBy);
-        console.log("***********************");
-        console.log(tempList.data.results.stories);
         setStoryList(tempList.data.results.stories);
       }
       getStories();

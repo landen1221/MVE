@@ -33,7 +33,6 @@ class MVEAPI {
 
     try {
       const addStory = await axios({ url, data, method });
-      console.log(addStory);
       return addStory;
     } catch (err) {
       console.error("API Error:", err.response);
@@ -47,7 +46,6 @@ class MVEAPI {
 
     try {
       const foundStories = await axios({ url, query, method });
-      console.log(foundStories);
       return foundStories;
     } catch (err) {
       console.error("API Error:", err.response);

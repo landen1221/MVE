@@ -57,7 +57,6 @@ function Navbar({ setSearchBy }) {
 
   // example search url: myvaccineexprience.org/story/search?q=worth+it
   function handleSubmit(evt) {
-    console.log(evt.key);
     if (evt.key === "Enter") {
       let finalSearch = searchTerm.search.split(" ").join("+");
       setSearchBy(finalSearch);

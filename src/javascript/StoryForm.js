@@ -58,7 +58,6 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
         ),
     }),
     onSubmit: (values) => {
-      console.log(values);
       async function addStory() {
         await MVEAPI.postStory(values);
       }
