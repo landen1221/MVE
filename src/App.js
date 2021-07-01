@@ -37,7 +37,7 @@ function App() {
     ],
   };
   const [stats, setStats] = useState(tempStats);
-  // testing branches
+  const [currStory, setCurrStory] = useState({});
 
   // handles state when searching
   const [searchBy, setSearchBy] = useState("");
@@ -52,8 +52,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Grid container>
-        <Grid item xs={12}> */}
       <Navbar setSearchBy={setSearchBy} />
       <Switch>
         <Route exact path="/story/search">
@@ -71,6 +69,8 @@ function App() {
             siteName="COVID"
             vaccines={vaccines}
             stats={stats}
+            currStory={currStory}
+            setCurrStory={setCurrStory}
           />
         </Route>
         {Object.entries(vaccines).map(([dbName, siteName]) => (
@@ -81,11 +81,13 @@ function App() {
               siteName={siteName}
               vaccines={vaccines}
               stats={stats}
+              currStory={currStory}
+              setCurrStory={setCurrStory}
             />
           </Route>
         ))}
         <Route exact path="/add-story" key="add-story">
-          <StoryForm vaccines={vaccines} setVisible={setVisible} />
+          <StoryForm vaccines={vaccines} setCurrStory={setCurrStory} />
         </Route>
 
         <Redirect from="/" to="/covid" />

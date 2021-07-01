@@ -14,7 +14,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const StoriesSection = ({ dbName, siteName, vaccines, stats }) => {
+const StoriesSection = ({
+  dbName,
+  siteName,
+  vaccines,
+  stats,
+  currStory,
+  setCurrStory,
+}) => {
   const classes = useStyles();
   const [storyList, setStoryList] = useState([]);
   const [originalStories, setOriginalStories] = useState();
@@ -23,11 +30,17 @@ const StoriesSection = ({ dbName, siteName, vaccines, stats }) => {
   useEffect(() => {
     async function getStories() {
       let tempList = await MVEAPI.requestStories(dbName.toLowerCase());
+      // add newest story on initial load
+      if (currStory.story) {
+        tempList.data.stories.push(currStory);
+        setCurrStory({});
+      }
       setStoryList(tempList.data.stories);
       setOriginalStories(tempList.data.stories);
     }
+
     getStories();
-  }, [dbName]);
+  }, [dbName, currStory, setCurrStory]);
 
   return (
     <div className={classes.root}>
