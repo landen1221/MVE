@@ -37,6 +37,10 @@ function App() {
     ],
   };
   const [stats, setStats] = useState(tempStats);
+<<<<<<< HEAD
+=======
+  // testing branches
+>>>>>>> stateUpdates
 
   // handles state when searching
   const [searchBy, setSearchBy] = useState("");
