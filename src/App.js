@@ -38,8 +38,12 @@ function App() {
   };
   const [stats, setStats] = useState(tempStats);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   // testing branches
+>>>>>>> stateUpdates
+=======
+  const [currStory, setCurrStory] = useState({});
 >>>>>>> stateUpdates
 
   // handles state when searching
@@ -72,6 +76,8 @@ function App() {
             siteName="COVID"
             vaccines={vaccines}
             stats={stats}
+            currStory={currStory}
+            setCurrStory={setCurrStory}
           />
         </Route>
         {Object.entries(vaccines).map(([dbName, siteName]) => (
@@ -82,11 +88,17 @@ function App() {
               siteName={siteName}
               vaccines={vaccines}
               stats={stats}
+              currStory={currStory}
+              setCurrStory={setCurrStory}
             />
           </Route>
         ))}
         <Route exact path="/add-story" key="add-story">
+<<<<<<< HEAD
           <StoryForm vaccines={vaccines} />
+=======
+          <StoryForm vaccines={vaccines} setCurrStory={setCurrStory} />
+>>>>>>> stateUpdates
         </Route>
 
         <Redirect from="/" to="/covid" />
