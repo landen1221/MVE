@@ -3,7 +3,7 @@ import "../css/Story.css";
 import Button from "@material-ui/core/Button";
 
 const Story = ({ currStory, search, vaccines }) => {
-  let maxInitialCount = 250;
+  let maxInitialCount = 350;
   const needsTruncated = currStory.story.length > maxInitialCount;
 
   const [isTruncated, setIsTruncated] = useState(needsTruncated);
@@ -37,7 +37,6 @@ const Story = ({ currStory, search, vaccines }) => {
           )}
         </i>
       </h4>
-      {/* <p>{currStory.story}</p> */}
 
       <p>
         {availableStory}

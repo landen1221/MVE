@@ -37,14 +37,7 @@ function App() {
     ],
   };
   const [stats, setStats] = useState(tempStats);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  // testing branches
->>>>>>> stateUpdates
-=======
   const [currStory, setCurrStory] = useState({});
->>>>>>> stateUpdates
 
   // handles state when searching
   const [searchBy, setSearchBy] = useState("");
@@ -94,11 +87,7 @@ function App() {
           </Route>
         ))}
         <Route exact path="/add-story" key="add-story">
-<<<<<<< HEAD
-          <StoryForm vaccines={vaccines} />
-=======
           <StoryForm vaccines={vaccines} setCurrStory={setCurrStory} />
->>>>>>> stateUpdates
         </Route>
 
         <Redirect from="/" to="/covid" />
