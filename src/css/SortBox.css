@@ -42,3 +42,9 @@
 #filter {
   margin-top: 0px;
 }
+
+.SortBox .MuiInputBase-input {
+  font-size: 15px;
+  height: 0;
+  width: 50%;
+}

@@ -19,8 +19,8 @@ const SortBox = ({ dbName, storyList, setStoryList, originalStories }) => {
 
   const initialValues = {
     gender: "",
-    ageMin: undefined,
-    ageMax: undefined,
+    ageMin: "",
+    ageMax: "",
     satisfied: "",
   };
 
@@ -47,13 +47,13 @@ const SortBox = ({ dbName, storyList, setStoryList, originalStories }) => {
         if (parseInt(formData["ageMin"]) > 0) {
           filteredList = filteredList.filter(
             (story) =>
-              story["age"] > parseInt(formData["ageMin"]) && story["age"]
+              story["age"] >= parseInt(formData["ageMin"]) && story["age"]
           );
         }
         if (parseInt(formData["ageMax"]) > 0) {
           filteredList = filteredList.filter(
             (story) =>
-              story["age"] < parseInt(formData["ageMax"]) && story["age"]
+              story["age"] <= parseInt(formData["ageMax"]) && story["age"]
           );
         }
       }
@@ -62,7 +62,7 @@ const SortBox = ({ dbName, storyList, setStoryList, originalStories }) => {
     if (filteredList) {
       setStoryList(filteredList);
     }
-  }, [formData]);
+  }, [formData, originalStories, setStoryList]);
 
   const clear = () => {
     setFormData({
@@ -108,7 +108,7 @@ const SortBox = ({ dbName, storyList, setStoryList, originalStories }) => {
           <TextField
             id="select-gender"
             select
-            label="Gender:"
+            label="Gender"
             name="gender"
             variant="outlined"
             value={formData.gender}

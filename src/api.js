@@ -12,8 +12,8 @@ class MVEAPI {
       return stories;
     } catch (err) {
       console.error("API Error:", err.response);
-      // let message = err.response.data.error.message;
-      // throw Array.isArray(message) ? message : [message];
+      let message = err.response.data.error.message;
+      throw Array.isArray(message) ? message : [message];
     }
   }
 
@@ -24,8 +24,8 @@ class MVEAPI {
       return stats;
     } catch (err) {
       console.error("API Error:", err.response);
-      // let message = err.response.data.error.message;
-      // throw Array.isArray(message) ? message : [message];
+      let message = err.response.data.error.message;
+      throw Array.isArray(message) ? message : [message];
     }
   }
 
@@ -37,8 +37,8 @@ class MVEAPI {
       return addStory;
     } catch (err) {
       console.error("API Error:", err.response);
-      // let message = err.response.data.error.message;
-      // throw Array.isArray(message) ? message : [message];
+      let message = err.response.data.error.message;
+      throw Array.isArray(message) ? message : [message];
     }
   }
 
@@ -50,8 +50,8 @@ class MVEAPI {
       return foundStories;
     } catch (err) {
       console.error("API Error:", err.response);
-      // let message = err.response.data.error.message;
-      // throw Array.isArray(message) ? message : [message];
+      let message = err.response.data.error.message;
+      throw Array.isArray(message) ? message : [message];
     }
   }
 }

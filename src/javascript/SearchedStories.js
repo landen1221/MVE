@@ -34,14 +34,6 @@ const SearchedStories = ({ vaccines, searchBy, search }) => {
           Stories Matching{" "}
           <u>{searchBy.length > 0 ? searchBy.split("+").join(" ") : "All"}</u>
         </h3>
-        {/* <Grid container>
-          <SortBox
-            dbName={undefined}
-            storyList={storyList}
-            setStoryList={setStoryList}
-            originalStories={originalStories}
-          />
-        </Grid> */}
         <Grid item xs={12} className="SearchedStories-stories">
           <Stories storyList={storyList} search={search} vaccines={vaccines} />
         </Grid>

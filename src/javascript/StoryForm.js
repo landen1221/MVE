@@ -24,7 +24,7 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
       )}`,
       vaccine: "",
       satisfied: "",
-      age: undefined,
+      age: "",
       gender: "",
       story: "",
       // fingerprint: "",
