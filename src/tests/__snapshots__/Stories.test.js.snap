@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Stories makeStyles-root-2"
+  >
+    <i
+      id="no-stories"
+    >
+      <br />
+      no stories available
+    </i>
+  </div>
+</DocumentFragment>
+`;

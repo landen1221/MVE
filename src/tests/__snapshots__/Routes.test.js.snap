@@ -1,0 +1,449 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Header"
+  >
+    <h2>
+      Real stories from real people to help you make an informed decision!
+    </h2>
+    <div
+      id="ButtonSection"
+    >
+      <a
+        href="/covid"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+          id="VaccineButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            COVID
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </a>
+      <a
+        href="/vaccine/johnsonandjohnson"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+          id="VaccineButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            Johnson & Johnson
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </a>
+      <a
+        href="/vaccine/astrazeneca"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+          id="VaccineButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            AstraZeneca
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </a>
+      <a
+        href="/vaccine/pfizer"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+          id="VaccineButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            Pfizer
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </a>
+      <a
+        href="/vaccine/moderna"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+          id="VaccineButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            Moderna
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </a>
+    </div>
+  </div>
+  <div
+    class="makeStyles-root-8"
+  >
+    <div
+      class="StoriesSection"
+    >
+      <h3>
+        Stories about 
+        <i>
+          COVID
+        </i>
+      </h3>
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
+      >
+        <div
+          class="MuiGrid-root StoriesSection-stories MuiGrid-item MuiGrid-grid-xs-9"
+        >
+          <div
+            class="SortBox undefined"
+          >
+            <div
+              class="MuiPaper-root makeStyles-greyPaper-9 MuiPaper-elevation2 MuiPaper-rounded"
+            >
+              <h4
+                id="filter"
+              >
+                Filters: 
+              </h4>
+              <form>
+                <div
+                  class="MuiFormControl-root MuiTextField-root"
+                >
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                    data-shrink="false"
+                    for="select-gender"
+                    id="select-gender-label"
+                  >
+                    Gender
+                  </label>
+                  <div
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+                  >
+                    <div
+                      aria-haspopup="listbox"
+                      aria-labelledby="select-gender-label select-gender"
+                      class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input"
+                      id="select-gender"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <span>
+                        ​
+                      </span>
+                    </div>
+                    <input
+                      aria-hidden="true"
+                      class="MuiSelect-nativeInput"
+                      name="gender"
+                      tabindex="-1"
+                      value=""
+                    />
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7 10l5 5 5-5z"
+                      />
+                    </svg>
+                    <fieldset
+                      aria-hidden="true"
+                      class="PrivateNotchedOutline-root-10 MuiOutlinedInput-notchedOutline"
+                    >
+                      <legend
+                        class="PrivateNotchedOutline-legendLabelled-12"
+                      >
+                        <span>
+                          Gender
+                        </span>
+                      </legend>
+                    </fieldset>
+                  </div>
+                </div>
+                <div
+                  class="MuiFormControl-root MuiTextField-root"
+                >
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                    data-shrink="false"
+                    for="select-satisfied"
+                    id="select-satisfied-label"
+                  >
+                    Intensity
+                  </label>
+                  <div
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+                  >
+                    <div
+                      aria-haspopup="listbox"
+                      aria-labelledby="select-satisfied-label select-satisfied"
+                      class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input"
+                      id="select-satisfied"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <span>
+                        ​
+                      </span>
+                    </div>
+                    <input
+                      aria-hidden="true"
+                      class="MuiSelect-nativeInput"
+                      name="satisfied"
+                      tabindex="-1"
+                      value=""
+                    />
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7 10l5 5 5-5z"
+                      />
+                    </svg>
+                    <fieldset
+                      aria-hidden="true"
+                      class="PrivateNotchedOutline-root-10 MuiOutlinedInput-notchedOutline"
+                    >
+                      <legend
+                        class="PrivateNotchedOutline-legendLabelled-12"
+                      >
+                        <span>
+                          Intensity
+                        </span>
+                      </legend>
+                    </fieldset>
+                  </div>
+                </div>
+                <div
+                  class="MuiFormControl-root MuiTextField-root"
+                >
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                    data-shrink="false"
+                  >
+                    Min. Age
+                  </label>
+                  <div
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+                  >
+                    <input
+                      aria-invalid="false"
+                      class="MuiInputBase-input MuiOutlinedInput-input"
+                      name="ageMin"
+                      type="text"
+                      value=""
+                    />
+                    <fieldset
+                      aria-hidden="true"
+                      class="PrivateNotchedOutline-root-10 MuiOutlinedInput-notchedOutline"
+                    >
+                      <legend
+                        class="PrivateNotchedOutline-legendLabelled-12"
+                      >
+                        <span>
+                          Min. Age
+                        </span>
+                      </legend>
+                    </fieldset>
+                  </div>
+                </div>
+                <div
+                  class="MuiFormControl-root MuiTextField-root"
+                >
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                    data-shrink="false"
+                  >
+                    Max Age
+                  </label>
+                  <div
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+                  >
+                    <input
+                      aria-invalid="false"
+                      class="MuiInputBase-input MuiOutlinedInput-input"
+                      name="ageMax"
+                      type="text"
+                      value=""
+                    />
+                    <fieldset
+                      aria-hidden="true"
+                      class="PrivateNotchedOutline-root-10 MuiOutlinedInput-notchedOutline"
+                    >
+                      <legend
+                        class="PrivateNotchedOutline-legendLabelled-12"
+                      >
+                        <span>
+                          Max Age
+                        </span>
+                      </legend>
+                    </fieldset>
+                  </div>
+                </div>
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+                  id="clear"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label"
+                  >
+                    clear filters
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </form>
+            </div>
+          </div>
+          <div
+            class="Stories makeStyles-root-14"
+          >
+            <i
+              id="no-stories"
+            >
+              <br />
+              no stories available
+            </i>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3"
+        >
+          <div
+            class="Stats"
+          >
+            <h4>
+              Satified w/ Vaccine:
+            </h4>
+            <hr />
+            <p
+              id="intensity-helper"
+            >
+              (From 
+              <u>
+                5
+              </u>
+               users)
+            </p>
+            <p
+              class="satisfied"
+            >
+              <b>
+                J&J: 
+              </b>
+              100%
+            </p>
+            <p
+              class="satisfied"
+            >
+              <b>
+                AstraZeneca: 
+              </b>
+              100%
+            </p>
+            <p
+              class="satisfied"
+            >
+              <b>
+                Pfizer: 
+              </b>
+              100%
+            </p>
+            <p
+              class="satisfied"
+            >
+              <b>
+                Moderna: 
+              </b>
+              50%
+            </p>
+          </div>
+          <br />
+          <div
+            class="Stats"
+          >
+            <h4>
+              COVID Intensity
+            </h4>
+            <hr />
+            <p
+              id="intensity-helper"
+            >
+              (Out of 
+              <u>
+                5
+              </u>
+               cases)
+            </p>
+            <p
+              class="intensity"
+            >
+              <b>
+                No Big Deal: 
+              </b>
+              20%
+            </p>
+            <p
+              class="intensity"
+            >
+              <b>
+                Mild: 
+              </b>
+              20%
+            </p>
+            <p
+              class="intensity"
+            >
+              <b>
+                Severe: 
+              </b>
+              60%
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

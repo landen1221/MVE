@@ -91,7 +91,7 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
   const extraCovidRow = (
     <FormControl component="fieldset">
       <FormLabel component="legend">
-        <u>Intensity of Illness</u>
+        <u>Intensity of Illness:</u>
       </FormLabel>
       <RadioGroup
         aria-label="satisfied"
@@ -127,7 +127,7 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
 
       <form onSubmit={formik.handleSubmit}>
         <TextField
-          label="Username"
+          label="Username:"
           variant="outlined"
           name="username"
           helperText="*You may keep auto-generated username (Save username to find your post later)"
@@ -174,7 +174,7 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
         <br />
         <TextField
           id="age-field"
-          label="Age (Optional)"
+          label="Age (Optional):"
           placeholder="Optional"
           variant="outlined"
           name="age"
@@ -190,7 +190,7 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
         <TextField
           id="select-gender"
           select
-          label="Gender (optional)"
+          label="Gender (optional):"
           name="gender"
           variant="outlined"
           value={formik.values.gender}
@@ -213,7 +213,7 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
         <br />
         <br />
 
-        <p id="story-label">My Story:*</p>
+        <p id="story-label">My Story:</p>
         <TextField
           placeholder="After my 2nd vaccine I didn't feel great for a few days, but I'm glad I got it because..."
           id="story-textarea"
@@ -246,6 +246,7 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
           color="primary"
           className="VaccineButton"
           type="submit"
+          role="submit"
         >
           Submit
         </Button>

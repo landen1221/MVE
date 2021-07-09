@@ -9,3 +9,10 @@ const search = "";
 it("renders without crashing", () => {
   render(<Stories storyList={storyList} search={search} vaccines={vaccines} />);
 });
+
+it("matches snapshot", function () {
+  const { asFragment } = render(
+    <Stories storyList={storyList} search={search} vaccines={vaccines} />
+  );
+  expect(asFragment()).toMatchSnapshot();
+});

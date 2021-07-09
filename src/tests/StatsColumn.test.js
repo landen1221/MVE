@@ -8,3 +8,10 @@ import { stats, vaccines } from "./globalTestVariables";
 it("renders without crashing", () => {
   render(<StatsColumn stats={stats} vaccines={vaccines} />);
 });
+
+it("matches snapshot", function () {
+  const { asFragment } = render(
+    <StatsColumn stats={stats} vaccines={vaccines} />
+  );
+  expect(asFragment()).toMatchSnapshot();
+});

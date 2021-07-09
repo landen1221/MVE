@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Header"
+  >
+    <h2>
+      Real stories from real people to help you make an informed decision!
+    </h2>
+    <div
+      id="ButtonSection"
+    >
+      <a
+        href="/covid"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+          id="VaccineButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            COVID
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </a>
+      <a
+        href="/vaccine/johnsonandjohnson"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+          id="VaccineButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            Johnson & Johnson
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </a>
+      <a
+        href="/vaccine/astrazeneca"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+          id="VaccineButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            AstraZeneca
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </a>
+      <a
+        href="/vaccine/pfizer"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+          id="VaccineButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            Pfizer
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </a>
+      <a
+        href="/vaccine/moderna"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+          id="VaccineButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            Moderna
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;

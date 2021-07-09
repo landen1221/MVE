@@ -15,3 +15,12 @@ it("renders without crashing", function () {
     </MemoryRouter>
   );
 });
+
+it("matches snapshot", function () {
+  const { asFragment } = render(
+    <MemoryRouter>
+      <Routes searchBy={searchBy} vaccines={vaccines} stats={stats} />
+    </MemoryRouter>
+  );
+  expect(asFragment()).toMatchSnapshot();
+});

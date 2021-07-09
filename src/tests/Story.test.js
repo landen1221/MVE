@@ -18,3 +18,10 @@ const currStory = {
 it("renders without crashing", () => {
   render(<Story vaccines={vaccines} search="false" currStory={currStory} />);
 });
+
+it("matches snapshot", function () {
+  const { asFragment } = render(
+    <Story vaccines={vaccines} search="false" currStory={currStory} />
+  );
+  expect(asFragment()).toMatchSnapshot();
+});

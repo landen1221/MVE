@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="makeStyles-root-3"
+  >
+    <div
+      class="SearchedStories"
+    >
+      <h3>
+        Stories Matching 
+        <u>
+          test
+        </u>
+      </h3>
+      <div
+        class="MuiGrid-root SearchedStories-stories MuiGrid-item MuiGrid-grid-xs-12"
+      >
+        <div
+          class="Stories makeStyles-root-4"
+        >
+          <i
+            id="no-stories"
+          >
+            <br />
+            no stories available
+          </i>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

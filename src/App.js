@@ -6,7 +6,7 @@ import Routes from "./javascript/Routes";
 import { BrowserRouter } from "react-router-dom";
 
 // vaccine variable dictates how vaccines are shown/stored
-// key = how it's stored in DB
+// key = how it's stored in DB & used in url
 // value = how it shows on the web-page
 // covid = {covid: "COVID"}
 const vaccines = {

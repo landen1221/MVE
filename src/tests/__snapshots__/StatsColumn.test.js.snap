@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Stats"
+  >
+    <h4>
+      Satified w/ Vaccine:
+    </h4>
+    <hr />
+    <p
+      id="intensity-helper"
+    >
+      (From 
+      <u>
+        5
+      </u>
+       users)
+    </p>
+    <p
+      class="satisfied"
+    >
+      <b>
+        J&J: 
+      </b>
+      100%
+    </p>
+    <p
+      class="satisfied"
+    >
+      <b>
+        AstraZeneca: 
+      </b>
+      100%
+    </p>
+    <p
+      class="satisfied"
+    >
+      <b>
+        Pfizer: 
+      </b>
+      100%
+    </p>
+    <p
+      class="satisfied"
+    >
+      <b>
+        Moderna: 
+      </b>
+      50%
+    </p>
+  </div>
+  <br />
+  <div
+    class="Stats"
+  >
+    <h4>
+      COVID Intensity
+    </h4>
+    <hr />
+    <p
+      id="intensity-helper"
+    >
+      (Out of 
+      <u>
+        5
+      </u>
+       cases)
+    </p>
+    <p
+      class="intensity"
+    >
+      <b>
+        No Big Deal: 
+      </b>
+      20%
+    </p>
+    <p
+      class="intensity"
+    >
+      <b>
+        Mild: 
+      </b>
+      20%
+    </p>
+    <p
+      class="intensity"
+    >
+      <b>
+        Severe: 
+      </b>
+      60%
+    </p>
+  </div>
+</DocumentFragment>
+`;

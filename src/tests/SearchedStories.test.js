@@ -12,3 +12,10 @@ it("renders without crashing", function () {
     <SearchedStories vaccines={vaccines} searchBy={searchBy} search={search} />
   );
 });
+
+it("matches snapshot", function () {
+  const { asFragment } = render(
+    <SearchedStories vaccines={vaccines} searchBy={searchBy} search={search} />
+  );
+  expect(asFragment()).toMatchSnapshot();
+});

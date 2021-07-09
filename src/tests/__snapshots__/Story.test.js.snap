@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Story"
+  >
+    <h4>
+      testUser1   
+      <i
+        id="age-gender"
+      >
+        <u>
+          Age
+        </u>
+        : 25  
+        <u>
+          Gender
+        </u>
+        : Male  
+        <u>
+          Satisfied
+        </u>
+        : Yes  
+        <u>
+          Story about
+        </u>
+        : Pfizer 
+      </i>
+    </h4>
+    <p>
+      I got the vaccine AND was s ick for a few days but now I feel great
+    </p>
+  </div>
+</DocumentFragment>
+`;
