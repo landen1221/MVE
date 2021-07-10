@@ -4,11 +4,8 @@ import StoryForm from "../javascript/StoryForm";
 import { vaccines } from "./globalTestVariables";
 import { MemoryRouter } from "react-router";
 import { act } from "react-dom/test-utils";
-import { screen } from "@testing-library/react";
 
 // Props: vaccines, setCurrStory
-
-// FIXME: How to add setCurrStory
 
 it("renders without crashing", () => {
   render(
@@ -18,53 +15,65 @@ it("renders without crashing", () => {
   );
 });
 
-// it("matches snapshot", function () {
-//   const { asFragment } = render(
-//     <MemoryRouter>
-//       <StoryForm vaccines={vaccines} />
-//     </MemoryRouter>
-//   );
-//   expect(asFragment()).toMatchSnapshot();
-// });
+describe("complete form", () => {
+  describe("with valid inputs", () => {
+    it("calls the onSubmit function", async () => {
+      const mockOnSubmit = jest.fn();
+      const { getByLabelText, getByTestId, getByPlaceholderText, getByText } =
+        render(
+          <MemoryRouter>
+            <StoryForm vaccines={vaccines} setCurrStory={mockOnSubmit} />
+          </MemoryRouter>
+        );
+      const gender = getByTestId("gender");
+      const age = getByLabelText("Age (optional)", { exact: false });
+      const satisfied = getByTestId("satisfied-yes", {
+        exact: false,
+      });
+      const vaccine = getByTestId("vaccine-type");
+      const story = getByPlaceholderText(
+        "After my 2nd vaccine I didn't feel great for a few days, but I'm glad I got it because..."
+      );
+      const button = getByText("Submit");
 
-// describe("complete form", () => {
-//   describe("with valid inputs", () => {
-//     it("calls the onSubmit function", async () => {
-//       const mockOnSubmit = jest.fn();
-//       const { getByLabelText, getByRole } = render(
-//         <MemoryRouter>
-//           <StoryForm vaccines={vaccines} onSubmit={mockOnSubmit} />
-//         </MemoryRouter>
-//       );
-//       await act(async () => {
-//         // for covid replace 'Glad I got the Vaccine:' with  'Intensity of Illness:'
-//         fireEvent.change(getByLabelText("Username:"), {
-//           target: { value: "testUser100" },
-//         });
-//         fireEvent.change(getByLabelText("Select COVID or Vaccine:"), {
-//           target: { value: "pfizer" },
-//         });
-//         fireEvent.change(getByLabelText("Glad I got the Vaccine:"), {
-//           target: { value: "Yes" },
-//         });
-//         fireEvent.change(getByLabelText("Age (Optional):"), {
-//           target: { value: 32 },
-//         });
-//         fireEvent.change(getByLabelText("Gender (optional):"), {
-//           target: { value: "Male" },
-//         });
-//         fireEvent.change(getByLabelText("My Story:"), {
-//           target: {
-//             value:
-//               "Didn't feel well for a couple of days but now I feel great!",
-//           },
-//         });
-//       });
-//       await act(async () => {
-//         fireEvent.click(getByRole("submit"));
-//       });
+      await act(async () => {
+        fireEvent.change(age, {
+          target: { value: 50 },
+        });
+      });
 
-//       expect(mockOnSubmit).toHaveBeenCalled();
-//     });
-//   });
-// });
+      await act(async () => {
+        fireEvent.change(gender, { target: { value: "Male" } });
+      });
+
+      await act(async () => {
+        fireEvent.click(satisfied, { target: { checked: true } });
+      });
+
+      await act(async () => {
+        fireEvent.change(vaccine, { target: { value: "pfizer" } });
+      });
+
+      await act(async () => {
+        fireEvent.change(story, {
+          target: {
+            value:
+              "Didn't feel well for a couple of days but now I feel great!",
+          },
+        });
+      });
+
+      expect(age).toHaveValue("50");
+      expect(vaccine).toHaveValue("pfizer");
+      expect(gender).toHaveValue("Male");
+      expect(story).toHaveTextContent("Didn't feel well");
+      expect(satisfied).toHaveTextContent("Yes");
+
+      await act(async () => {
+        fireEvent.click(button);
+      });
+
+      expect(mockOnSubmit).toHaveBeenCalled();
+    });
+  });
+});

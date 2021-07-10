@@ -86,7 +86,7 @@ function Navbar({ setSearchBy }) {
               <SearchIcon />
             </div>
             <InputBase
-              placeholder="Search…"
+              placeholder="Search..."
               name="search"
               value={searchTerm.search}
               onChange={handleChange}

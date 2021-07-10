@@ -1,4 +1,3 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import ButtonSection from "../javascript/ButtonSection";
 import { MemoryRouter } from "react-router";
@@ -33,5 +32,27 @@ it("renders all buttons", () => {
   for (let val in vaccines) {
     const linkElement = screen.getByText(vaccines[val]);
     expect(linkElement).toBeInTheDocument();
+  }
+});
+
+test("all buttons properly linked", () => {
+  render(
+    <MemoryRouter>
+      <ButtonSection vaccines={vaccines} />
+    </MemoryRouter>
+  );
+
+  const covidLink = screen.getByText(`COVID`);
+  expect(covidLink.parentElement.parentElement).toHaveAttribute(
+    "href",
+    "/covid"
+  );
+
+  for (let val in vaccines) {
+    const linkElement = screen.getByText(vaccines[val]);
+    expect(linkElement.parentElement.parentElement).toHaveAttribute(
+      "href",
+      `/vaccine/${val}`
+    );
   }
 });

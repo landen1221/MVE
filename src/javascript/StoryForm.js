@@ -72,17 +72,23 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
 
   const extraVaccineRow = (
     <FormControl component="fieldset">
-      <FormLabel component="legend">
-        <u>Glad I got the Vaccine:</u>
+      <FormLabel component="label" htmlFor="satisfied">
+        Glad I got the Vaccine:
       </FormLabel>
       <RadioGroup
+        id="satisfied"
         aria-label="satisfied"
         name="satisfied"
         value={formik.values.satisfied}
         onBlur={formik.handleBlur}
         onChange={formik.handleChange}
       >
-        <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
+        <FormControlLabel
+          value="Yes"
+          control={<Radio />}
+          label="Yes"
+          data-testid="satisfied-yes"
+        />
         <FormControlLabel value="No" control={<Radio />} label="No" />
       </RadioGroup>
     </FormControl>
@@ -90,10 +96,11 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
 
   const extraCovidRow = (
     <FormControl component="fieldset">
-      <FormLabel component="legend">
-        <u>Intensity of Illness:</u>
+      <FormLabel component="label" htmlFor="satisfied">
+        <u>Intensity of Illness</u>:
       </FormLabel>
       <RadioGroup
+        id="satisfied"
         aria-label="satisfied"
         name="satisfied"
         value={formik.values.satisfied}
@@ -147,6 +154,7 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
           label="Select COVID or Vaccine:"
           name="vaccine"
           variant="outlined"
+          inputProps={{ "data-testid": "vaccine-type" }}
           value={formik.values.vaccine}
           onBlur={formik.handleBlur}
           onChange={formik.handleChange}
@@ -192,6 +200,7 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
           select
           label="Gender (optional):"
           name="gender"
+          inputProps={{ "data-testid": "gender" }}
           variant="outlined"
           value={formik.values.gender}
           onBlur={formik.handleBlur}
@@ -213,7 +222,10 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
         <br />
         <br />
 
-        <p id="story-label">My Story:</p>
+        <FormLabel component="label" htmlFor="story-textarea">
+          <u>My Story</u>:
+        </FormLabel>
+        <br />
         <TextField
           placeholder="After my 2nd vaccine I didn't feel great for a few days, but I'm glad I got it because..."
           id="story-textarea"
