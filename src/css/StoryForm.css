@@ -67,18 +67,12 @@
 }
 
 #story-helper {
-  margin-top: 3px;
+  margin-top: 0.3em;
   margin-bottom: 2em;
   font-family: Roboto, Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 0.85em;
+  font-style: italic;
   color: rgba(0, 0, 0, 0.755);
-}
-
-#username-helper {
-  margin-top: 3px;
-  margin-bottom: 15px;
-  font-family: Roboto, Helvetica, Arial, sans-serif;
-  font-size: 12px;
 }
 
 #center-recaptcha {
@@ -86,11 +80,6 @@
   margin: auto;
   margin-top: 15px;
   text-align: center;
-}
-
-#story-label {
-  margin-bottom: 10px;
-  padding-bottom: 10px;
 }
 
 .StoryForm #my-story {

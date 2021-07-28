@@ -47,15 +47,17 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
           120,
           <p className="error">Invalid age. Enter age or leave blank</p>
         )
-        .nullable(),
+        .nullable()
+        .truncate(),
       gender: Yup.string(),
       story: Yup.string()
         .min(10, <p className="error">Story must be at least 10 characters.</p>)
         .required(
           <p className="error">
-            This site is built by your stories. Please share your experience.
+            This site is built upon your stories. Please share your experience.
           </p>
-        ),
+        )
+        .trim(),
     }),
     onSubmit: (values) => {
       async function addStory() {
