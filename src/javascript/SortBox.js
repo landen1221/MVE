@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SortBox = ({ dbName, storyList, setStoryList, originalStories }) => {
+const SortBox = ({ dbName, setStoryList, originalStories }) => {
   const classes = useStyles();
   const gender = ["Male", "Female", "Other"];
 
@@ -111,6 +111,7 @@ const SortBox = ({ dbName, storyList, setStoryList, originalStories }) => {
             label="Gender"
             name="gender"
             variant="outlined"
+            inputProps={{ "data-testid": "gender" }}
             value={formData.gender}
             onChange={handleChange}
           >

@@ -1,5 +1,5 @@
 import React from "react";
-import { act, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import Routes from "../javascript/Routes";
 import { MemoryRouter } from "react-router";
 import { vaccines, stats } from "./globalTestVariables";

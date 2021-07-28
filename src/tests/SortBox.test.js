@@ -1,34 +1,50 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import SortBox from "../javascript/SortBox";
 import { storyList } from "./globalTestVariables";
+import { act } from "react-dom/test-utils";
 
 // Props: dbName, storyList, setStoryList, originalStories
-// FIXME: How to utilize setStoryList
-const dbName = "covid";
-const originalStories = storyList;
+const vaccine = "moderna";
+const mockSetStoryList = jest.fn();
+let stories = storyList["stories"];
 
-// it("renders without crashing", () => {
-//   render(
-//     <SortBox
-//       dbName={dbName}
-//       originalStories={originalStories}
-//       sotryList={storyList}
-//     />
-//   );
-// });
+it("renders without crashing", () => {
+  render(
+    <SortBox
+      dbName={vaccine}
+      originalStories={stories}
+      setStoryList={mockSetStoryList}
+    />
+  );
+});
 
-// it("matches snapshot", function () {
-//   const { asFragment } = render(
-//     <SortBox
-//       dbName={dbName}
-//       originalStories={originalStories}
-//       sotryList={storyList}
-//     />
-//   );
-//   expect(asFragment()).toMatchSnapshot();
-// });
+it("matches snapshot", function () {
+  const { asFragment } = render(
+    <SortBox
+      dbName={vaccine}
+      originalStories={stories}
+      setStoryList={mockSetStoryList}
+    />
+  );
+  expect(asFragment()).toMatchSnapshot();
+});
 
-it("should = 2", () => {
-  expect(1 + 1).toBe(2);
+it("updates displayed stories", async () => {
+  const { getByTestId } = render(
+    <SortBox
+      dbName={vaccine}
+      originalStories={stories}
+      setStoryList={mockSetStoryList}
+    />
+  );
+
+  const gender = getByTestId("gender");
+
+  await act(async () => {
+    fireEvent.change(gender, { target: { value: "Male" } });
+  });
+
+  expect(gender).toHaveValue("Male");
+  expect(mockSetStoryList).toHaveBeenCalled();
 });

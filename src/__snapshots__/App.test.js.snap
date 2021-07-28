@@ -48,7 +48,7 @@ exports[`matches snapshot 1`] = `
                 aria-label="search"
                 class="MuiInputBase-input makeStyles-inputInput-15"
                 name="search"
-                placeholder="Search…"
+                placeholder="Search..."
                 type="text"
                 value=""
               />

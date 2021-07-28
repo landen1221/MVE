@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import Navbar from "../javascript/Navbar";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import userEvent from "@testing-library/user-event";
 
