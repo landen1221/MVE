@@ -92,3 +92,11 @@
   margin-bottom: 10px;
   padding-bottom: 10px;
 }
+
+.StoryForm #my-story {
+  margin-top: 50px;
+  line-height: 2.5;
+  font-size: 1.02rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+}

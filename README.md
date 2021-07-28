@@ -8,7 +8,7 @@ MyVaccineExperience.org is an unbiased platform for users to share their stories
 
 ## Run This App
 
-\*The express API for this project can be found at (https://github.com/landen1221/mve-backend). This overview will explain how to setup both the front and back-end\_.
+\*The express API for this project can be found at (https://github.com/landen1221/mve-backend). This overview will explain how to setup both the front and back-end.
 
 \*This project is currently in production at (https://myvaccineexperience.herokuapp.com/)
 

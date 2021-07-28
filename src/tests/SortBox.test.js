@@ -31,7 +31,7 @@ it("matches snapshot", function () {
 });
 
 it("updates displayed stories", async () => {
-  const { getByTestId } = render(
+  const { getByTestId, getByText } = render(
     <SortBox
       dbName={vaccine}
       originalStories={stories}
@@ -47,4 +47,12 @@ it("updates displayed stories", async () => {
 
   expect(gender).toHaveValue("Male");
   expect(mockSetStoryList).toHaveBeenCalled();
+
+  const clearButton = getByText("clear filters");
+
+  await act(async () => {
+    fireEvent.click(clearButton);
+  });
+
+  expect(gender).toHaveValue("");
 });

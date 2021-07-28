@@ -222,8 +222,8 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
         <br />
         <br />
 
-        <FormLabel component="label" htmlFor="story-textarea">
-          <u>My Story</u>:
+        <FormLabel component="label" htmlFor="story-textarea" id="my-story">
+          My Story:
         </FormLabel>
         <br />
         <TextField
