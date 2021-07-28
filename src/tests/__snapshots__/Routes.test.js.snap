@@ -167,6 +167,7 @@ exports[`matches snapshot 1`] = `
                     <input
                       aria-hidden="true"
                       class="MuiSelect-nativeInput"
+                      data-testid="gender"
                       name="gender"
                       tabindex="-1"
                       value=""

@@ -7,10 +7,6 @@ const VaccineButton = ({ vaccine }) => {
       <Button variant="contained" color="primary" id="VaccineButton">
         {vaccine}
       </Button>
-
-      {/* <Link to={`/${vaccine}`}>
-        <button>{vaccine}</button>
-      </Link> */}
     </>
   );
 };
