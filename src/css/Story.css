@@ -2,3 +2,19 @@
   text-decoration: underline;
   font-size: 0.8em;
 }
+
+.Story #add-top-margin {
+  margin-top: 15px;
+}
+
+.Story p {
+  margin-top: 0;
+}
+
+.Story #flag-filled {
+  transform: rotate(5deg);
+}
+
+.Story #flag-empty {
+  transform: rotate(-5deg);
+}

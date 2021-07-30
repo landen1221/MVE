@@ -53,6 +53,18 @@ class MVEAPI {
       throw Array.isArray(message) ? message : [message];
     }
   }
+
+  static async getAllStories(method = "get") {
+    const url = `${BASE_URL}/admin/all`;
+    try {
+      const allStories = await axios({ url, method });
+      return allStories;
+    } catch (err) {
+      console.error("API Error:", err.response);
+      let message = err.response.data.error.message;
+      throw Array.isArray(message) ? message : [message];
+    }
+  }
 }
 
 export default MVEAPI;

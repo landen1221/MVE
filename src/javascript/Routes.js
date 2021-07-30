@@ -4,6 +4,8 @@ import StoryForm from "./StoryForm";
 import Header from "./Header";
 import SearchedStories from "./SearchedStories";
 import { useState } from "react";
+import AdminLogin from "./AdminLogin";
+import Admin from "./Admin";
 
 const Routes = ({ searchBy, vaccines, stats }) => {
   const [currStory, setCurrStory] = useState({});
@@ -45,6 +47,13 @@ const Routes = ({ searchBy, vaccines, stats }) => {
       ))}
       <Route exact path="/add-story" key="add-story">
         <StoryForm vaccines={vaccines} setCurrStory={setCurrStory} />
+      </Route>
+
+      <Route exact path="/admin/login" key="admin-login">
+        <AdminLogin />
+      </Route>
+      <Route exact path="/admin/stories" key="admin-login">
+        <Admin />
       </Route>
 
       <Redirect from="/" to="/covid" />
