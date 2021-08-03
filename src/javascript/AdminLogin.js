@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import MVEAPI from "../api";
 
 const AdminLogin = () => {
   const history = useHistory();
@@ -8,17 +9,15 @@ const AdminLogin = () => {
     password: "",
   });
 
-  /** Handle form submit:
-   *
-   * Calls login func prop and, if successful, redirect to /companies.
-   */
-
   async function handleSubmit(evt) {
     evt.preventDefault();
     //   let result = await login(formData);
-    let result = { success: true };
-    if (result.success) {
-      history.push("/companies");
+    let { data } = await MVEAPI.login(formData);
+    const token = data.token;
+
+    if (token) {
+      localStorage.setItem("_token", token);
+      history.push("/admin/stories");
     } else {
       console.log("login error");
     }

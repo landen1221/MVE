@@ -54,11 +54,62 @@ class MVEAPI {
     }
   }
 
-  static async getAllStories(method = "get") {
-    const url = `${BASE_URL}/admin/all`;
+  static async login(data, method = "post") {
+    const url = `${BASE_URL}/admin/login`;
+    console.log(data);
     try {
-      const allStories = await axios({ url, method });
+      const result = await axios({ url, method, data });
+
+      return result;
+    } catch (err) {
+      console.error("API Error:", err.response);
+      let message = err.response.data.error.message;
+      throw Array.isArray(message) ? message : [message];
+    }
+  }
+
+  static async getAllStories(data, method = "get") {
+    const url = `${BASE_URL}/admin/all`;
+    console.log("*************");
+    console.log(data);
+    try {
+      const allStories = await axios({ url, method, data });
       return allStories;
+    } catch (err) {
+      console.error("API Error:", err.response);
+      let message = err.response.data.error.message;
+      throw Array.isArray(message) ? message : [message];
+    }
+  }
+
+  static async addFlagCount(storyID, method = "post") {
+    const url = `${BASE_URL}/story/addflag/${storyID}`;
+    try {
+      await axios({ url, method });
+      return "flag count increased";
+    } catch (err) {
+      console.error("API Error:", err.response);
+      let message = err.response.data.error.message;
+      throw Array.isArray(message) ? message : [message];
+    }
+  }
+
+  static async subtractFlagCount(storyID, method = "post") {
+    const url = `${BASE_URL}/story/subtractflag/${storyID}`;
+    try {
+      await axios({ url, method });
+      return "flag count decreased";
+    } catch (err) {
+      console.error("API Error:", err.response);
+      let message = err.response.data.error.message;
+      throw Array.isArray(message) ? message : [message];
+    }
+  }
+
+  static async updateVisability(data, method = "post") {
+    const url = `${BASE_URL}/admin/update`;
+    try {
+      await axios({ url, method, data });
     } catch (err) {
       console.error("API Error:", err.response);
       let message = err.response.data.error.message;

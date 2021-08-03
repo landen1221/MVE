@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import FlagSharpIcon from "@material-ui/icons/FlagSharp";
 import FlagOutlinedIcon from "@material-ui/icons/FlagOutlined";
 import Tooltip from "@material-ui/core/Tooltip";
+import MVEAPI from "../api";
 
 const Story = ({ currStory, search, vaccines }) => {
   let maxInitialCount = 380;
@@ -21,8 +22,14 @@ const Story = ({ currStory, search, vaccines }) => {
     setIsTruncated(!isTruncated);
   };
 
-  const handleClick = () => {
+  const handleClick = async () => {
     setReport(!report);
+    if (!report) {
+      await MVEAPI.addFlagCount(currStory.story_id);
+    } else {
+      await MVEAPI.subtractFlagCount(currStory.story_id);
+    }
+    console.log("should have changed");
   };
 
   return (
@@ -38,7 +45,7 @@ const Story = ({ currStory, search, vaccines }) => {
               <u>Satisfied</u>:{" "}
               {currStory.satisfied ? currStory.satisfied : "n/a"}
               &emsp;&emsp;
-              {/* {search && (
+              {search && (
                 <>
                   <u>Story about</u>:{" "}
                   {currStory.vaccine === "covid"
@@ -46,7 +53,7 @@ const Story = ({ currStory, search, vaccines }) => {
                     : vaccines[currStory.vaccine]}
                   &emsp;
                 </>
-              )} */}
+              )}
             </i>
           </h4>
         </Grid>
