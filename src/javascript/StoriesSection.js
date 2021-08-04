@@ -50,7 +50,6 @@ const StoriesSection = ({
         <h3>
           Stories about <i>{siteName}</i>
         </h3>
-        <h4>{flaggedStories}</h4>
 
         <Grid container spacing={2}>
           <Grid item xs={9} className="StoriesSection-stories">

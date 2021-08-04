@@ -53,6 +53,7 @@ class MVEAPI {
     }
   }
 
+  // Admin
   static async login(data, method = "post") {
     const url = `${BASE_URL}/admin/login`;
     try {
@@ -66,11 +67,32 @@ class MVEAPI {
     }
   }
 
+  // Admin
   static async getAllStories(data, method = "get") {
     const url = `${BASE_URL}/admin/all`;
     try {
-      const allStories = await axios({ url, method, data });
+      const allStories = await axios({
+        url,
+        method,
+        headers: { authorization: `Bearer ${data._token}` },
+      });
       return allStories;
+    } catch (err) {
+      console.error("API Error:", err.response);
+      let message = err.response.data.error.message;
+      throw Array.isArray(message) ? message : [message];
+    }
+  }
+
+  static async updateVisability(header, data, method = "post") {
+    const url = `${BASE_URL}/admin/update`;
+    try {
+      await axios({
+        url,
+        method,
+        data,
+        headers: { authorization: `Bearer ${header._token}` },
+      });
     } catch (err) {
       console.error("API Error:", err.response);
       let message = err.response.data.error.message;
@@ -95,17 +117,6 @@ class MVEAPI {
     try {
       await axios({ url, method });
       return "flag count decreased";
-    } catch (err) {
-      console.error("API Error:", err.response);
-      let message = err.response.data.error.message;
-      throw Array.isArray(message) ? message : [message];
-    }
-  }
-
-  static async updateVisability(data, method = "post") {
-    const url = `${BASE_URL}/admin/update`;
-    try {
-      await axios({ url, method, data });
     } catch (err) {
       console.error("API Error:", err.response);
       let message = err.response.data.error.message;

@@ -28,28 +28,28 @@ const categories = [
 
 const Admin = () => {
   //   const classes = useStyles();
-  const _token = JSON.stringify({
+  const _token = {
     _token: localStorage.getItem("_token") || false,
-  });
+  };
 
   const [stories, setStories] = useState([]);
   const [checked, setChecked] = useState({});
 
   useEffect(() => {
     async function getStories() {
-      console.log(_token);
       let { data } = await MVEAPI.getAllStories(_token);
+      console.log(data);
       setStories(data.results);
     }
     getStories();
-  }, [_token]);
+  }, []);
 
   const handleChange = (event) => {
     setChecked({ ...checked, [event.target.name]: event.target.checked });
   };
 
   async function updateVisability() {
-    await MVEAPI.updateVisability({ checked: JSON.stringify(checked) });
+    await MVEAPI.updateVisability(_token, { checked: JSON.stringify(checked) });
     window.location.reload();
   }
 
