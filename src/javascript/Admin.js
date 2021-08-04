@@ -34,7 +34,6 @@ const Admin = () => {
 
   const [stories, setStories] = useState([]);
   const [checked, setChecked] = useState({});
-  const [updated, setUpdated] = useState(1);
 
   useEffect(() => {
     async function getStories() {
@@ -43,7 +42,8 @@ const Admin = () => {
       setStories(data.results);
     }
     getStories();
-  }, [updated, _token]);
+  }, [_token]);
+
   const handleChange = (event) => {
     setChecked({ ...checked, [event.target.name]: event.target.checked });
   };

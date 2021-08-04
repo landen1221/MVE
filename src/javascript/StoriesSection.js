@@ -25,22 +25,24 @@ const StoriesSection = ({
   const classes = useStyles();
   const [storyList, setStoryList] = useState([]);
   const [originalStories, setOriginalStories] = useState();
+  const [flaggedStories, setFlaggedStories] = useState([]);
+  const fingerprint = localStorage.getItem("fingerprint");
 
   // get list of all stories based on vaccine or covid selection
   useEffect(() => {
     async function getStories() {
-      let tempList = await MVEAPI.requestStories(dbName.toLowerCase());
-      // add newest story on initial load
-      if (currStory.story) {
-        tempList.data.stories.push(currStory);
-        setCurrStory({});
-      }
-      setStoryList(tempList.data.stories);
-      setOriginalStories(tempList.data.stories);
+      let tempList = await MVEAPI.requestStories(
+        dbName.toLowerCase(),
+        fingerprint
+      );
+      const vaccineStories = tempList.data.stories.stories;
+      setStoryList(vaccineStories);
+      setOriginalStories(vaccineStories);
+      setFlaggedStories(tempList.data.stories.flaggedStoriesArray);
     }
 
     getStories();
-  }, [dbName, currStory, setCurrStory]);
+  }, [dbName, currStory, setCurrStory, fingerprint]);
 
   return (
     <div className={classes.root}>
@@ -48,6 +50,7 @@ const StoriesSection = ({
         <h3>
           Stories about <i>{siteName}</i>
         </h3>
+        <h4>{flaggedStories}</h4>
 
         <Grid container spacing={2}>
           <Grid item xs={9} className="StoriesSection-stories">
@@ -57,7 +60,11 @@ const StoriesSection = ({
               setStoryList={setStoryList}
               originalStories={originalStories}
             />
-            <Stories storyList={storyList} />
+            <Stories
+              storyList={storyList}
+              fingerprint={fingerprint}
+              flaggedStories={flaggedStories}
+            />
           </Grid>
 
           <Grid item xs={3}>

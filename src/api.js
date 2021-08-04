@@ -3,9 +3,8 @@ import axios from "axios";
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 class MVEAPI {
-  static async requestStories(vaccine, method = "get") {
-    const url = `${BASE_URL}/vaccine/${vaccine}`;
-
+  static async requestStories(vaccine, fingerprint, method = "get") {
+    const url = `${BASE_URL}/vaccine/${vaccine}/${fingerprint}`;
     try {
       const stories = await axios({ url, method });
       return stories;
@@ -56,7 +55,6 @@ class MVEAPI {
 
   static async login(data, method = "post") {
     const url = `${BASE_URL}/admin/login`;
-    console.log(data);
     try {
       const result = await axios({ url, method, data });
 
@@ -70,8 +68,6 @@ class MVEAPI {
 
   static async getAllStories(data, method = "get") {
     const url = `${BASE_URL}/admin/all`;
-    console.log("*************");
-    console.log(data);
     try {
       const allStories = await axios({ url, method, data });
       return allStories;
@@ -82,8 +78,8 @@ class MVEAPI {
     }
   }
 
-  static async addFlagCount(storyID, method = "post") {
-    const url = `${BASE_URL}/story/addflag/${storyID}`;
+  static async addFlagCount(storyID, fingerprint, method = "post") {
+    const url = `${BASE_URL}/story/addflag/${storyID}/${fingerprint}`;
     try {
       await axios({ url, method });
       return "flag count increased";
@@ -94,8 +90,8 @@ class MVEAPI {
     }
   }
 
-  static async subtractFlagCount(storyID, method = "post") {
-    const url = `${BASE_URL}/story/subtractflag/${storyID}`;
+  static async subtractFlagCount(storyID, fingerprint, method = "post") {
+    const url = `${BASE_URL}/story/subtractflag/${storyID}/${fingerprint}`;
     try {
       await axios({ url, method });
       return "flag count decreased";

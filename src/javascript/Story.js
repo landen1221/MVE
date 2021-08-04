@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../css/Story.css";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
@@ -7,12 +7,12 @@ import FlagOutlinedIcon from "@material-ui/icons/FlagOutlined";
 import Tooltip from "@material-ui/core/Tooltip";
 import MVEAPI from "../api";
 
-const Story = ({ currStory, search, vaccines }) => {
+const Story = ({ currStory, search, vaccines, flaggedStories }) => {
   let maxInitialCount = 380;
   const needsTruncated = currStory.story.length > maxInitialCount;
-
   const [isTruncated, setIsTruncated] = useState(needsTruncated);
   const [report, setReport] = useState(false);
+  const fingerprint = localStorage.getItem("fingerprint");
 
   const availableStory = isTruncated
     ? currStory.story.slice(0, maxInitialCount)
@@ -25,12 +25,15 @@ const Story = ({ currStory, search, vaccines }) => {
   const handleClick = async () => {
     setReport(!report);
     if (!report) {
-      await MVEAPI.addFlagCount(currStory.story_id);
+      await MVEAPI.addFlagCount(currStory.story_id, fingerprint);
     } else {
-      await MVEAPI.subtractFlagCount(currStory.story_id);
+      await MVEAPI.subtractFlagCount(currStory.story_id, fingerprint);
     }
-    console.log("should have changed");
   };
+
+  useEffect(() => {
+    setReport(flaggedStories.indexOf(currStory.story_id) > -1);
+  }, [flaggedStories, currStory.story_id]);
 
   return (
     <div className="Story">
@@ -60,7 +63,7 @@ const Story = ({ currStory, search, vaccines }) => {
         <Grid item xs={2}>
           <Tooltip title="Report Post">
             <h4 onClick={handleClick}>
-              <i id="age-gender">
+              <i id="flag">
                 {report ? (
                   <FlagSharpIcon id="flag-filled" />
                 ) : (

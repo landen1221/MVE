@@ -15,7 +15,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Stories = ({ storyList, search, vaccines }) => {
+const Stories = ({
+  storyList,
+  search,
+  vaccines,
+  fingerprint,
+  flaggedStories,
+}) => {
   const classes = useStyles();
 
   return (
@@ -27,6 +33,8 @@ const Stories = ({ storyList, search, vaccines }) => {
               currStory={storyList[storyList.length - 1 - idx]}
               search={search}
               vaccines={vaccines}
+              fingerprint={fingerprint}
+              flaggedStories={flaggedStories}
             />
           </Paper>
         ))

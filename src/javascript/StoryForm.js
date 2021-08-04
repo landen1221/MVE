@@ -16,6 +16,7 @@ import * as Yup from "yup";
 
 const StoryForm = ({ vaccines, setCurrStory }) => {
   let history = useHistory();
+  const fingerprint = localStorage.getItem("fingerprint");
 
   const formik = useFormik({
     initialValues: {
@@ -27,7 +28,7 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
       age: "",
       gender: "",
       story: "",
-      // fingerprint: "",
+      fingerprint,
     },
 
     validationSchema: Yup.object({
