@@ -1,11 +1,12 @@
 import "../css/StatsColumn.css";
+import AlertDialog from "./DialogBox";
 
 // Example of data provided w/ 'stats'
 // {
 //   "stats": {
 //     "pfizer": 98,
 //     "astrazeneca": 84,
-//     "moderna": 66.66666666666666,
+//     "moderna": 66.66666666,
 //     "johnsonandjohnson": 80,
 //     "covid": [
 //       {
@@ -72,6 +73,7 @@ const StatsColumn = ({ stats, vaccines }) => {
         </p>
         {intensityOrder.map((intensity) => covidStats(intensity))}
       </div>
+      <AlertDialog />
     </>
   );
 };

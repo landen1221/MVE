@@ -14,8 +14,6 @@ const AdminLogin = () => {
     //   let result = await login(formData);
     let { data } = await MVEAPI.login(formData);
     const token = data.token;
-    console.log("*-*-*-*-*");
-    console.log(token);
 
     if (token) {
       localStorage.setItem("_token", token);

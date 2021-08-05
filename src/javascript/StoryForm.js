@@ -10,6 +10,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import "../css/StoryForm.css";
 import UsernameGenerator from "username-generator";
 import MVEAPI from "../api";
+import AlertDialog from "./DialogBox";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -129,10 +130,14 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
   return (
     <div className="StoryForm">
       <h3>Submit Story about your COVID or Vaccine experience:</h3>
-      <p id="story-helper">
+      {/* <p id="story-helper">
         Story should be 1st hand experience (not something you heard/read){" "}
         <br />
         This is a public forum. Don't include personal/private information
+      </p> */}
+      <p id="story-helper">
+        To assure your story is not flagged, please read rules before posting
+        <AlertDialog />
       </p>
 
       <form onSubmit={formik.handleSubmit}>

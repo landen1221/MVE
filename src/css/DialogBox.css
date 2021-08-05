@@ -1,0 +1,11 @@
+.DialogBox {
+  margin-top: 1em;
+}
+
+.DialogBox button {
+  border: white;
+}
+
+.DialogBox #close-button {
+  margin: 25px;
+}

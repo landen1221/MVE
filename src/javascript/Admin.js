@@ -38,7 +38,6 @@ const Admin = () => {
   useEffect(() => {
     async function getStories() {
       let { data } = await MVEAPI.getAllStories(_token);
-      console.log(data);
       setStories(data.results);
     }
     getStories();
