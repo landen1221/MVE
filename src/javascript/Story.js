@@ -7,7 +7,7 @@ import FlagOutlinedIcon from "@material-ui/icons/FlagOutlined";
 import Tooltip from "@material-ui/core/Tooltip";
 import MVEAPI from "../api";
 
-const Story = ({ currStory, search, vaccines, flaggedStories = [] }) => {
+const Story = ({ currStory, search, vaccines, flaggedStories }) => {
   let maxInitialCount = 380;
   const needsTruncated = currStory.story.length > maxInitialCount;
   const [isTruncated, setIsTruncated] = useState(needsTruncated);

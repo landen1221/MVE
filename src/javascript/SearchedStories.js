@@ -15,16 +15,19 @@ const useStyles = makeStyles((theme) => ({
 const SearchedStories = ({ vaccines, searchBy, search }) => {
   const classes = useStyles();
   const [storyList, setStoryList] = useState([]);
+  const fingerprint = localStorage.getItem("fingerprint");
+  const [flaggedStories, setFlaggedStories] = useState([]);
 
   useEffect(
     function findStories() {
       async function getStories() {
-        let tempList = await MVEAPI.searchStories(searchBy);
+        let tempList = await MVEAPI.searchStories(searchBy, fingerprint);
         setStoryList(tempList.data.results.stories);
+        setFlaggedStories(tempList.data.results.flaggedStoriesArray);
       }
       getStories();
     },
-    [searchBy]
+    [searchBy, fingerprint]
   );
 
   return (
@@ -35,7 +38,13 @@ const SearchedStories = ({ vaccines, searchBy, search }) => {
           <u>{searchBy.length > 0 ? searchBy.split("+").join(" ") : "All"}</u>
         </h3>
         <Grid item xs={12} className="SearchedStories-stories">
-          <Stories storyList={storyList} search={search} vaccines={vaccines} />
+          <Stories
+            storyList={storyList}
+            search={search}
+            vaccines={vaccines}
+            fingerprint={fingerprint}
+            flaggedStories={flaggedStories}
+          />
         </Grid>
       </div>
     </div>

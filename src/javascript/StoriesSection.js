@@ -27,6 +27,7 @@ const StoriesSection = ({
   const [originalStories, setOriginalStories] = useState();
   const [flaggedStories, setFlaggedStories] = useState([]);
   const fingerprint = localStorage.getItem("fingerprint");
+  console.log(fingerprint);
 
   // get list of all stories based on vaccine or covid selection
   useEffect(() => {
