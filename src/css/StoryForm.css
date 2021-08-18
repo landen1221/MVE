@@ -81,13 +81,6 @@
   color: rgba(0, 0, 0, 0.755);
 }
 
-#center-recaptcha {
-  width: 19em;
-  margin: auto;
-  margin-top: 15px;
-  text-align: center;
-}
-
 .StoryForm #my-story {
   margin-top: 50px;
   line-height: 2.5;
