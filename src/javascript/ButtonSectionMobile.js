@@ -4,7 +4,6 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import Grid from "@material-ui/core/Grid";
 import "../css/ButtonSectionMobile.css";
 import { useHistory } from "react-router-dom";
 
@@ -40,33 +39,29 @@ export default function ButtonSectionMobile({ vaccines }) {
 
   return (
     <div className="ButtonSectionMobile">
-      <Grid container spacing={2}>
-        <Grid item xs={6}>
-          <FormControl className={classes.formControl}>
-            <InputLabel id="demo-controlled-open-select-label">
-              Stories About:
-            </InputLabel>
-            <Select
-              labelId="demo-controlled-open-select-label"
-              id="demo-controlled-open-select"
-              open={open}
-              onClose={handleClose}
-              onOpen={handleOpen}
-              value={currDbName[currDbName.length - 1]}
-              onChange={handleChange}
-            >
-              <MenuItem value="covid" key="covid">
-                COVID
-              </MenuItem>
-              {Object.entries(vaccines).map(([dbName, siteName]) => (
-                <MenuItem value={dbName} key={dbName}>
-                  {siteName}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </Grid>
-      </Grid>
+      <FormControl className={classes.formControl}>
+        <InputLabel id="demo-controlled-open-select-label">
+          Stories About:
+        </InputLabel>
+        <Select
+          labelId="demo-controlled-open-select-label"
+          id="demo-controlled-open-select"
+          open={open}
+          onClose={handleClose}
+          onOpen={handleOpen}
+          value={currDbName[currDbName.length - 1]}
+          onChange={handleChange}
+        >
+          <MenuItem value="covid" key="covid">
+            COVID
+          </MenuItem>
+          {Object.entries(vaccines).map(([dbName, siteName]) => (
+            <MenuItem value={dbName} key={dbName}>
+              {siteName}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
     </div>
   );
 }
