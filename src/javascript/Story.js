@@ -6,8 +6,43 @@ import FlagSharpIcon from "@material-ui/icons/FlagSharp";
 import FlagOutlinedIcon from "@material-ui/icons/FlagOutlined";
 import Tooltip from "@material-ui/core/Tooltip";
 import MVEAPI from "../api";
+import Hidden from "@material-ui/core/Hidden";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  header: {
+    marginTop: "0",
+
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: "1vw",
+      marginRight: "1vw",
+    },
+    [theme.breakpoints.up("sm")]: {
+      textAlign: "center",
+      padding: "0",
+    },
+  },
+  italic: {
+    [theme.breakpoints.down("md")]: {
+      // marginLeft: "25px",
+    },
+  },
+  story: {
+    marginTop: "0",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: "4vw",
+      marginRight: "4vw",
+    },
+    [theme.breakpoints.up("sm")]: {
+      marginRight: "2vw",
+      marginLeft: "2vw",
+      textAlign: "start",
+    },
+  },
+}));
 
 const Story = ({ currStory, search, vaccines, flaggedStories }) => {
+  const classes = useStyles();
   let maxInitialCount = 380;
   const needsTruncated = currStory.story.length > maxInitialCount;
   const [isTruncated, setIsTruncated] = useState(needsTruncated);
@@ -38,16 +73,31 @@ const Story = ({ currStory, search, vaccines, flaggedStories }) => {
   return (
     <div className="Story">
       <Grid container spacing={2}>
-        <Grid item xs={10}>
+        <Grid item xs={12} className={classes.header} id="user-info">
           <h4>
-            {currStory.username}&emsp;&emsp;&emsp;
-            <i id="age-gender">
-              <u>Age</u>: {currStory.age ? currStory.age : "n/a"}&emsp;&emsp;
-              <u>Gender</u>: {currStory.gender ? currStory.gender : "n/a"}
-              &emsp;&emsp;
-              <u>Satisfied</u>:{" "}
+            {currStory.username}
+            <Hidden smDown>&emsp;&emsp;</Hidden>
+            <Hidden smUp>
+              <br />
+            </Hidden>
+            <i id="age-gender" className={classes.italic}>
+              <Hidden smDown>
+                <u>Age</u>:
+              </Hidden>{" "}
+              {currStory.age ? currStory.age : "n/a"}
+              <Hidden smDown>&emsp;&emsp;</Hidden>
+              <Hidden smUp> / </Hidden>
+              <Hidden smDown>
+                <u>Gender</u>:
+              </Hidden>{" "}
+              {currStory.gender ? currStory.gender : "n/a"}
+              <Hidden smDown>&emsp;&emsp;</Hidden>
+              <Hidden smUp> / </Hidden>
+              <Hidden smDown>
+                <u>Satisfied</u>:
+              </Hidden>{" "}
               {currStory.satisfied ? currStory.satisfied : "n/a"}
-              &emsp;&emsp;
+              <Hidden smDown>&emsp;</Hidden>
               {search && (
                 <>
                   <u>Story about</u>:{" "}
@@ -59,22 +109,20 @@ const Story = ({ currStory, search, vaccines, flaggedStories }) => {
               )}
             </i>
           </h4>
-        </Grid>
-        <Grid item xs={2}>
           <Tooltip title="Report Post">
-            <h4 onClick={handleClick}>
-              <i id="flag">
+            <p onClick={handleClick} id="flag">
+              <i>
                 {report ? (
                   <FlagSharpIcon id="flag-filled" />
                 ) : (
                   <FlagOutlinedIcon id="flag-empty" />
                 )}
               </i>
-            </h4>
+            </p>
           </Tooltip>
         </Grid>
 
-        <p>
+        <p className={classes.story} id="story">
           {availableStory}
           {needsTruncated && isTruncated === true && (
             <Button color="primary" id="clear" onClick={adjustLength}>

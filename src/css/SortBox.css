@@ -5,7 +5,9 @@
 
 .SortBox .MuiOutlinedInput-root {
   height: 3em;
-  width: 10em;
+  width: 23vw;
+  max-width: 125px;
+  min-width: 100px;
   background-color: white;
   display: inline;
 }

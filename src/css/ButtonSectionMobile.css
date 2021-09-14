@@ -1,0 +1,8 @@
+/* .ButtonSectionMobile {
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+.MuiInput-formControl {
+  max-width: 200px;
+}

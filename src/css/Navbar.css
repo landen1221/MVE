@@ -1,17 +1,11 @@
 .MuiTypography-root {
-  font-size: 1em;
   font-weight: bold;
   letter-spacing: 0.05em;
   font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 
-.MuiAppBar-positionFixed {
-  align-items: center;
-}
-
-.makeStyles-search-3 {
-  margin-left: 25em;
-  margin-right: 25em;
+.makeStyles-search-1 {
+  border-radius: 12px;
 }
 
 .MuiButton-root {
@@ -21,7 +15,14 @@
 
 #logo {
   color: white;
-  margin-right: 5em;
+}
+
+.Navbar #logo-small {
+  color: white;
+}
+
+.Navbar #logo-link {
+  text-decoration: none;
 }
 
 .Navbar button {
@@ -33,7 +34,42 @@
   border: 1px solid #fff;
 }
 
-#Navbar {
-  background-color: red;
-  color: green;
+.MuiBox-root-5 {
+  border: none;
+  padding-top: 10px;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
+
+#add-icon {
+  font-size: 5em;
+}
+
+#nav-grid {
+  text-align: center;
+}
+
+#center-me {
+  text-align: center;
+  align-content: center;
+  max-width: 400px;
+}
+
+.Navbar button {
+  margin-left: auto;
+}
+
+#search-area {
+  max-width: 25vw;
+  min-width: 120px;
+}
+
+.Navbar .MuiToolbar-gutters {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+}
+
+/* #toolbar {
+  max-width: 45vw;
+} */

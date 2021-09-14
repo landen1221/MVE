@@ -1,3 +1,5 @@
-#ButtonSection {
-  margin-bottom: 50px;
+.ButtonSection {
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }

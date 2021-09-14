@@ -3,18 +3,46 @@
   font-size: 0.8em;
 }
 
-.Story #add-top-margin {
-  margin-top: 15px;
-}
-
-.Story p {
-  margin-top: 0;
+.Story {
+  margin-top: 12px;
 }
 
 .Story #flag-filled {
-  transform: rotate(5deg);
+  transform: rotate(8deg);
+  margin-top: -4px;
+  font-size: 1.3em;
 }
 
 .Story #flag-empty {
-  transform: rotate(-5deg);
+  transform: rotate(-10deg);
+  margin-top: -4px;
+  font-size: 1.3em;
+}
+
+.Story h4 {
+  display: inline;
+}
+
+.Story p {
+  display: inline;
+}
+
+.Story #age-gender {
+  margin-left: 0;
+}
+
+.Story #user-info {
+  padding-left: 0;
+  margin-left: 0;
+  padding-top: 12px;
+}
+
+.Story #flag {
+  margin: 0;
+  padding-left: 1.5vw;
+  padding-top: 20px;
+}
+
+#story {
+  text-align: start;
 }

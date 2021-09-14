@@ -6,6 +6,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import grey from "@material-ui/core/colors/grey";
 import { useEffect, useState } from "react";
 import Button from "@material-ui/core/Button";
+import Hidden from "@material-ui/core/Hidden";
 
 const useStyles = makeStyles((theme) => ({
   greyPaper: {
@@ -103,6 +104,9 @@ const SortBox = ({ dbName, setStoryList, originalStories }) => {
     <div className={`SortBox ${classes.root}`}>
       <Paper elevation={2} className={classes.greyPaper}>
         <h4 id="filter">Filters: </h4>
+        <Hidden mdUp>
+          <br />
+        </Hidden>
 
         <form>
           <TextField
