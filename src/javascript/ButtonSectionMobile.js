@@ -25,7 +25,6 @@ export default function ButtonSectionMobile({ vaccines }) {
   const classes = useStyles();
   const currDbName = window.location.href.split("/");
   const [open, setOpen] = React.useState(false);
-  console.log(vaccines);
 
   const handleChange = (event) => {
     history.push(`/vaccine/${event.target.value}`);

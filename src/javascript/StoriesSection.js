@@ -80,7 +80,7 @@ const StoriesSection = ({
             />
           </Grid>
           <Hidden smDown>
-            <Grid item md={0} lg={3}>
+            <Grid item md={false} lg={3}>
               <StatsColumn stats={stats} vaccines={vaccines} />
             </Grid>
           </Hidden>
