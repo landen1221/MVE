@@ -41,13 +41,13 @@ export default function AlertDialog() {
                 *Unless person has passed away.
               </li>
               <li>
-                Post must be about their experience with COVID or a Vaccine (not
-                a comment or political statement).
+                Post must be about an experience with COVID or a Vaccine (not a
+                comment or political statement).
               </li>
               <li>No outside links unless directly related to your story.</li>
               <li>
                 Each person is limited to 3 stories (COVID, vaccine-1,
-                vaccine-2.
+                vaccine-2).
               </li>
               <li>Don't use unneccessary amounts of profanity.</li>
             </ol>

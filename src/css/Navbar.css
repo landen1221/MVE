@@ -1,3 +1,18 @@
+.Navbar {
+  margin-bottom: 1vw;
+}
+
+.Navbar .navbar-grid {
+  text-align: center;
+}
+
+.Navbar .add-story {
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #fff;
+}
+
 .MuiTypography-root {
   font-weight: bold;
   letter-spacing: 0.05em;
@@ -8,9 +23,10 @@
   border-radius: 12px;
 }
 
-.MuiButton-root {
-  color: white;
-  border-radius: 15px;
+.Navbar #search-area {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #logo {
@@ -25,21 +41,12 @@
   text-decoration: none;
 }
 
-.Navbar button {
-  background-color: rgba(255, 255, 255, 0);
-  color: white;
-}
-
-.Navbar .MuiButton-outlined {
-  border: 1px solid #fff;
-}
-
-.MuiBox-root-5 {
+/* .MuiBox-root-5 {
   border: none;
   padding-top: 10px;
   padding-bottom: 0;
   margin-bottom: 0;
-}
+} */
 
 #add-icon {
   font-size: 5em;
@@ -49,27 +56,24 @@
   text-align: center;
 }
 
-#center-me {
-  text-align: center;
-  align-content: center;
-  max-width: 400px;
-}
-
 .Navbar button {
   margin-left: auto;
 }
 
-#search-area {
-  max-width: 25vw;
-  min-width: 120px;
-}
-
-.Navbar .MuiToolbar-gutters {
+.Navbar #toolbar {
   margin-left: auto;
   margin-right: auto;
-  padding-left: 10px;
+  padding: 0;
+  max-width: 1500px;
 }
 
-/* #toolbar {
-  max-width: 45vw;
-} */
+.Navbar .story-button {
+  width: auto;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 5px 0;
+}
+
+.Navbar #grid-item-search {
+  min-width: 6rem;
+}

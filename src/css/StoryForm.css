@@ -1,5 +1,10 @@
 .StoryForm {
-  margin-top: 6em;
+  margin-top: -1em;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: 90%;
+  display: inline-block;
+  text-align: center;
 }
 
 .StoryForm .MuiButton-containedPrimary {
@@ -18,9 +23,9 @@
   font-size: 0.9em;
 }
 
-.MuiInputBase-root {
+/* .MuiInputBase-root {
   width: 35em;
-}
+} */
 
 #age-field {
   text-align: center;
@@ -87,4 +92,13 @@
   font-size: 1.02rem;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
+}
+
+.StoryForm input {
+  width: 75% !important;
+}
+
+.StoryForm .XXXXXXXXXXXXXXX {
+  width: 100%;
+  max-width: 35rem;
 }

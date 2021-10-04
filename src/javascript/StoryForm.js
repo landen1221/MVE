@@ -61,6 +61,7 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
         )
         .trim(),
     }),
+
     onSubmit: (values) => {
       async function addStory() {
         await MVEAPI.postStory(values);
@@ -149,6 +150,7 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
           value={formik.values.username}
           onBlur={formik.handleBlur}
           onChange={formik.handleChange}
+          className="XXXXXXXXXXXXXXX"
         />
         {formik.touched.username && formik.errors.username ? (
           <div>{formik.errors.username}</div>
@@ -166,6 +168,7 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
           value={formik.values.vaccine}
           onBlur={formik.handleBlur}
           onChange={formik.handleChange}
+          className="XXXXXXXXXXXXXXX"
         >
           <MenuItem key={"covid"} value={"covid"} name={"covid"}>
             COVID
@@ -197,6 +200,7 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
           value={formik.values.age}
           onBlur={formik.handleBlur}
           onChange={formik.handleChange}
+          className="XXXXXXXXXXXXXXX"
         />
         {formik.touched.age && formik.errors.age ? (
           <div>{formik.errors.age}</div>
@@ -213,6 +217,7 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
           value={formik.values.gender}
           onBlur={formik.handleBlur}
           onChange={formik.handleChange}
+          className="XXXXXXXXXXXXXXX"
         >
           <MenuItem key="Male" value="Male">
             Male
@@ -244,6 +249,7 @@ const StoryForm = ({ vaccines, setCurrStory }) => {
           name="story"
           value={formik.values.story}
           onChange={formik.handleChange}
+          className="XXXXXXXXXXXXXXX"
         />
         {formik.touched.story && formik.errors.story ? (
           <div>{formik.errors.story}</div>

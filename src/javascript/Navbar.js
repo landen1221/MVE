@@ -9,6 +9,7 @@ import Button from "@material-ui/core/Button";
 import "../css/Navbar.css";
 import { Link, useHistory } from "react-router-dom";
 import Hidden from "@material-ui/core/Hidden";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   search: {
@@ -53,6 +54,19 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create("width"),
   },
+  toolbar: {
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
+
+    [theme.breakpoints.up("sm")]: {
+      width: "85%",
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: "65%",
+      maxWidth: "2000px",
+    },
+  },
 }));
 
 function Navbar({ setSearchBy }) {
@@ -79,50 +93,64 @@ function Navbar({ setSearchBy }) {
   }
   const { innerWidth } = window;
   return (
-    <div className={`Navbar `}>
-      <AppBar position="fixed" id="AppBar">
-        <Toolbar>
-          <Link to="/" id="logo-link">
-            <Hidden smDown>
-              <Typography variant="h6" noWrap id="logo">
-                MyVaccineExperience.org
-              </Typography>
-            </Hidden>
-            <Hidden mdUp>
-              <Typography variant="inherit" noWrap id="logo-small">
-                MVE
-              </Typography>
-            </Hidden>
-          </Link>
-
-          <div className={classes.search} id="search-area">
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder={innerWidth > 400 && "Search..."}
-              name="search"
-              value={searchTerm.search}
-              onChange={handleChange}
-              onKeyPress={handleSubmit}
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ "aria-label": "search" }}
-            />
-          </div>
-
-          <Link to="/add-story">
-            <Button variant="outlined" color="default">
-              <Hidden mdDown>Add Story </Hidden>
-              <Hidden lgUp id="add-icon">
-                New
-              </Hidden>
-            </Button>
-          </Link>
-        </Toolbar>
-      </AppBar>
+    <div className={`Navbar`}>
+      <Grid container spacing={1} className="navbar-grid">
+        <AppBar position="fixed" id="AppBar">
+          <Toolbar className={classes.toolbar} id="toolbar">
+            <Grid item xs={3}>
+              <div className="logo">
+                <Link to="/" id="logo-link">
+                  <Hidden smDown>
+                    <Typography variant="h6" noWrap id="logo">
+                      MyVaccineExperience.org
+                    </Typography>
+                  </Hidden>
+                  <Hidden mdUp>
+                    <Typography variant="inherit" noWrap id="logo-small">
+                      MVE
+                    </Typography>
+                  </Hidden>
+                </Link>
+              </div>
+            </Grid>
+            <Grid item xs={6} id="grid-item-search">
+              <div className={classes.search} id="search-area">
+                <div className={classes.searchIcon}>
+                  <SearchIcon />
+                </div>
+                <InputBase
+                  placeholder={innerWidth > 400 ? "Search..." : "..."}
+                  name="search"
+                  value={searchTerm.search}
+                  onChange={handleChange}
+                  onKeyPress={handleSubmit}
+                  classes={{
+                    root: classes.inputRoot,
+                    input: classes.inputInput,
+                  }}
+                  inputProps={{ "aria-label": "search" }}
+                />
+              </div>
+            </Grid>
+            <Grid item xs={3}>
+              <div className="story-button">
+                <Link to="/add-story">
+                  <Button
+                    variant="outlined"
+                    color="default"
+                    className="add-story"
+                  >
+                    <Hidden mdDown>Add Story </Hidden>
+                    <Hidden lgUp id="add-icon">
+                      New
+                    </Hidden>
+                  </Button>
+                </Link>
+              </div>
+            </Grid>
+          </Toolbar>
+        </AppBar>
+      </Grid>
     </div>
   );
 }
