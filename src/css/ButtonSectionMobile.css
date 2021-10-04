@@ -1,9 +1,14 @@
-.MuiInput-formControl {
+/* .MuiInput-formControl {
   max-width: 200px;
-}
+} */
 
 .ButtonSectionMobile {
   margin-top: 3vw;
   margin-left: auto;
   margin-right: auto;
+}
+
+.ButtonSectionMobile #mobile-dropdown {
+  width: 75%;
+  max-width: 20rem;
 }

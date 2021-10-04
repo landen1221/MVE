@@ -9,8 +9,8 @@ import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    minWidth: "10vw",
-    [theme.breakpoints.down("sm")]: {
+    minWidth: "15vw",
+    [theme.breakpoints.down("md")]: {
       marginLeft: "auto",
       marginRight: "auto",
       alignContent: "center",
@@ -39,7 +39,7 @@ export default function ButtonSectionMobile({ vaccines }) {
 
   return (
     <div className="ButtonSectionMobile">
-      <FormControl className={classes.formControl}>
+      <FormControl className={classes.formControl} id="mobile-dropdown">
         <InputLabel id="demo-controlled-open-select-label">
           Stories About:
         </InputLabel>
