@@ -39,3 +39,9 @@ Frontend:
 - Javascript
 - Axios
 - CSS
+
+## Technologies Utilized
+
+Also note that MVE utilizes a robust admin panel to handle inappropriate message. If a story is flagged more than 5 times than it will be reviewed by an admin. If it breaks the terms of the site than it will be hidden.
+
+![Admin Panel](/public/admin-panel.png)
