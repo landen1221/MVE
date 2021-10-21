@@ -1,10 +1,10 @@
 # My Vaccine Experience
 
-This project was created to fill the need for those looking for more firsthand accounts on people's experience with either COVID or a given vaccine. Right now the only place people are receiving this information is on social media or from a single experience shared from any given news source.
+With vaccines you can share negative stories on VAERS, but there's no place to share positive experiences or to share experiences with COVID. MVE is designed to allow users to share all experinces on both COVID and the vaccines and to collect stats on the cummulative stories.
 
-The problem with those options is you really only hear the good or the bad based on which news stations you follow or what the facebook algorithm is feeding you.
+This project was created to fill the need for those looking for firsthand accounts on people's experience with either COVID or a given vaccine. Right now most tend to only hear the extreme stories on the news or social media. The problem with those options is you really only hear the good or the bad based on which news stations you follow or what the social media algorithm is feeding you.
 
-MyVaccineExperience.org is an unbiased platform for users to share their stories. Here people can compare the devastating stories of COVID vs those of the vaccines and realize that one is far worse than the other! -- Simultaneously it may be true that those of a certain age may be better off not worrying about a vaccine.
+MyVaccineExperience.org is an unbiased platform for all users to share their stories. Here people can compare the stories and statistics of COVID vs those of the vaccines and make an informed decision on which option is best for them.
 
 ## Run This App
 
