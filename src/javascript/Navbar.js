@@ -20,22 +20,22 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     borderRadius: theme.shape.borderRadius,
 
-    [theme.breakpoints.down("sm")]: {
-      marginRight: theme.spacing(3),
-      marginLeft: theme.spacing(3),
-      width: "80%",
-    },
+    // [theme.breakpoints.down("sm")]: {
+    //   marginRight: theme.spacing(3),
+    //   marginLeft: theme.spacing(3),
+    //   width: "80%",
+    // },
 
-    [theme.breakpoints.up("sm")]: {
-      marginRight: theme.spacing(10),
-      marginLeft: theme.spacing(10),
-      width: "35%",
-    },
-    [theme.breakpoints.up("lg")]: {
-      marginRight: theme.spacing(30),
-      marginLeft: theme.spacing(30),
-      width: "25%",
-    },
+    // [theme.breakpoints.up("sm")]: {
+    //   marginRight: theme.spacing(10),
+    //   marginLeft: theme.spacing(10),
+    //   width: "35%",
+    // },
+    // [theme.breakpoints.up("lg")]: {
+    //   marginRight: theme.spacing(30),
+    //   marginLeft: theme.spacing(30),
+    //   width: "25%",
+    // },
   },
   searchIcon: {
     padding: theme.spacing(0, 2),
@@ -124,6 +124,7 @@ function Navbar({ setSearchBy }) {
                   value={searchTerm.search}
                   onChange={handleChange}
                   onKeyPress={handleSubmit}
+                  id="search-input"
                   classes={{
                     root: classes.inputRoot,
                     input: classes.inputInput,

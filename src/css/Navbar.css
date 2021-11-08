@@ -77,3 +77,11 @@
 .Navbar #grid-item-search {
   min-width: 6rem;
 }
+
+.Navbar #search-area {
+  text-align: left;
+}
+
+.Navbar #search-input {
+  margin-left: 3px;
+}

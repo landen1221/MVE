@@ -55,6 +55,7 @@ function App() {
 
     // This is the visitor identifier:
     const visitorId = result.visitorId;
+    console.log(visitorId);
     localStorage.setItem("fingerprint", visitorId);
   })();
 
